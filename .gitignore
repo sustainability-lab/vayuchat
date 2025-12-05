@@ -1,0 +1,13 @@
+/.quarto/
+/_site/
+/.vscode/
+/.idea/
+*.DS_Store
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.log
+node_modules/
+.env
+.env.local

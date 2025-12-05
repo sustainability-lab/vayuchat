@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="VayuBench and VayuChat: Executable Benchmarking and Deployment of LLMs for Multi-Dataset Air Quality Analytics">
+  <meta name="keywords" content="Air Quality, LLM, Benchmark, Code Generation, Environmental Data">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VayuBench and VayuChat: Executable Benchmarking and Deployment of LLMs for Air Quality Analytics</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">VayuBench and VayuChat: Executable Benchmarking and Deployment of LLMs for Multi-Dataset Air Quality Analytics</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="#">Vedant Acharya</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="#">Abhay Pisharodi</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="#">Ratnesh Pasi</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="#">Rishabh Mondal</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://nipunbatra.github.io/">Nipun Batra</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Indian Institute of Technology Gandhinagar,</span>
+            <span class="author-block"><sup>2</sup>Indian Institute of Information Technology Surat</span>
+          </div>
+
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>*</sup>Equal contribution</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><b>CODS 2025</b></span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-comments"></i>
+                  </span>
+                  <span>Demo</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Air pollution causes over <b>1.6 million premature deaths annually in India</b>. Yet, decision-makers face persistent barriers in turning diverse tabular data on air pollution, population, and funding into actionable insights. Existing tools demand technical expertise, offer shallow visualizations, or rely on static dashboards, leaving policy questions unresolved.
+          </p>
+          <p>
+            Large language models (LLMs) offer a potential alternative by translating natural-language questions into structured, multi-dataset analyses; however, their reliability for such domain-specific tasks remains unknown.
+          </p>
+          <p>
+            We present <b>VayuBench</b>, to our knowledge, the first executable benchmark for air-quality analytics. It comprises <b>5,000 natural-language queries</b> paired with verified Python code across seven query categories: spatial, temporal, spatio-temporal, population-based, area-based, funding-related and specific pattern queries over multiple real-world datasets.
+          </p>
+          <p>
+            We evaluate <b>13 open-source LLMs</b> under a unified, schema-aware protocol. While Qwen3-Coder-30B attains the strongest performance, frequent column-name and variable errors highlight risks for smaller models.
+          </p>
+          <p>
+            To bridge evaluation with practice, we deploy <b>VayuChat</b>, an interactive assistant that delivers real-time, code-backed analysis for Indian policymakers and citizens. Together, VayuBench and VayuChat demonstrate a reproducible pathway from benchmark to verified execution to deployment, establishing the foundations for trustworthy LLM-driven decision support in environmental monitoring.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">VayuBench: Query Distribution</h2>
+        <div class="content has-text-centered">
+          <img src="./static/images/query_prop.png" alt="Query distribution across 7 categories" style="max-width: 100%; height: auto;">
+          <p class="is-size-6">
+            Distribution of 5,000 queries across categories: Spatial (48.82%), Spatio-Temporal (24.56%), Temporal (12.15%), Funding (4.42%), Population-Based (3.82%), Area-Based (3.72%), and Specific Pattern (2.52%).
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">VayuChat: Interactive Interface</h2>
+        <div class="content has-text-centered">
+          <img src="./static/images/vb_interface.png" alt="VayuChat interface" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px;">
+          <p class="is-size-6">
+            VayuChat provides an intuitive interface with AI model selection, quick prompts, natural language query processing, and automated visualizations for air quality analytics.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Key Results</h2>
+        <div class="content has-text-justified">
+          <ul>
+            <li><b>Best Performance:</b> Qwen3-32B achieves 98% executable code with only 1% error rate</li>
+            <li><b>Model Scale Matters:</b> Models under 7B parameters show high error rates (53-97%) due to column naming and syntax issues</li>
+            <li><b>Schema-Aware Prompting Works:</b> Providing data schema information significantly improves code generation accuracy</li>
+            <li><b>Production Deployment:</b> VayuChat serves real users, demonstrating practical viability beyond academic benchmarks</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Impact</h2>
+        <div class="content has-text-justified">
+          <p>
+            VayuBench and VayuChat address a critical gap in environmental analytics by making air quality data accessible to non-technical stakeholders. Our benchmark establishes rigorous evaluation standards for LLMs in domain-specific analytics, while our deployed system demonstrates the practical feasibility of LLM-powered decision support for policy-critical applications.
+          </p>
+          <p>
+            This work has been featured in <a href="https://sustainability-lab.github.io/media.html">Indian Express, Ahmedabad Mirror</a>, and other leading environmental technology publications.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{acharya2025vayubench,
+  title={VayuBench and VayuChat: Executable Benchmarking and Deployment of LLMs for Multi-Dataset Air Quality Analytics},
+  author={Acharya, Vedant and Pisharodi, Abhay and Pasi, Ratnesh and Mondal, Rishabh and Batra, Nipun},
+  booktitle={CODS 2025},
+  year={2025}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        Website template borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+      </p>
+      <p>
+        <a href="https://sustainability-lab.github.io/">Sustainability Lab</a> |
+        <a href="https://iitgn.ac.in/">IIT Gandhinagar</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
