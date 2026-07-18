@@ -1,226 +1,327 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="VayuBench and VayuChat: Executable Benchmarking and Deployment of LLMs for Multi-Dataset Air Quality Analytics">
-  <meta name="keywords" content="Air Quality, LLM, Benchmark, Code Generation, Environmental Data">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>VayuBench and VayuChat: Executable Benchmarking and Deployment of LLMs for Air Quality Analytics</title>
+  <meta name="theme-color" content="#0b2933">
+  <meta name="description" content="VayuChat turns questions about Indian air-quality data into validated, executable analysis. Explore the live demo, native offline pilots, VayuBench, code, data, and papers.">
+  <meta name="keywords" content="VayuChat, VayuBench, air quality, large language models, environmental data, CPCB, executable benchmark, offline AI">
+  <meta name="author" content="Sustainability Lab, IIT Gandhinagar">
+  <meta name="robots" content="index, follow">
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <title>VayuChat | Executable air-quality analysis</title>
+  <link rel="canonical" href="https://sustainability-lab.github.io/vayuchat/">
+  <link rel="icon" href="./static/images/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sustainability Lab, IIT Gandhinagar">
+  <meta property="og:title" content="VayuChat | Executable air-quality analysis">
+  <meta property="og:description" content="Ask a question about Indian air-quality data and get a validated answer, table, or chart. Explore the live system, offline pilots, benchmark, code, and papers.">
+  <meta property="og:url" content="https://sustainability-lab.github.io/vayuchat/">
+  <meta property="og:image" content="https://sustainability-lab.github.io/vayuchat/static/images/vb_interface.png">
+  <meta property="og:image:alt" content="VayuChat interface showing conversational air-quality analysis">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@nipun_batra">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "VayuBench and VayuChat: Executable Benchmarking and Deployment of LLMs for Multi-Dataset Air Quality Analytics",
+    "datePublished": "2025",
+    "isPartOf": {
+      "@type": "PublicationVolume",
+      "name": "13th ACM IKDD International Conference on Data Science (CODS 2025)"
+    },
+    "author": [
+      {"@type": "Person", "name": "Vedant Acharya"},
+      {"@type": "Person", "name": "Abhay Pisharodi"},
+      {"@type": "Person", "name": "Ratnesh Pasi"},
+      {"@type": "Person", "name": "Rishabh Mondal"},
+      {"@type": "Person", "name": "Nipun Batra", "url": "https://nipunbatra.github.io/"}
+    ],
+    "publisher": {"@type": "Organization", "name": "Association for Computing Machinery"},
+    "identifier": "https://doi.org/10.1145/3799830.3799884",
+    "url": "https://sustainability-lab.github.io/vayuchat/"
+  }
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">VayuBench and VayuChat: Executable Benchmarking and Deployment of LLMs for Multi-Dataset Air Quality Analytics</h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="#">Vedant Acharya</a><sup>1*</sup>,</span>
-            <span class="author-block">
-              <a href="#">Abhay Pisharodi</a><sup>1*</sup>,</span>
-            <span class="author-block">
-              <a href="#">Ratnesh Pasi</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="#">Rishabh Mondal</a><sup>1</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://nipunbatra.github.io/">Nipun Batra</a><sup>1</sup>
-            </span>
-          </div>
-
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Indian Institute of Technology Gandhinagar,</span>
-            <span class="author-block"><sup>2</sup>Indian Institute of Information Technology Surat</span>
-          </div>
-
-          <div class="is-size-6 publication-authors">
-            <span class="author-block"><sup>*</sup>Equal contribution</span>
-          </div>
-
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><b>CODS 2025</b></span>
-          </div>
-
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <span class="link-block">
-                <a href="#" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="#" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="#" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
-              </span>
-              <span class="link-block">
-                <a href="#" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-comments"></i>
-                  </span>
-                  <span>Demo</span>
-                  </a>
-              </span>
-            </div>
-          </div>
-        </div>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="VayuChat home">
+        <img src="./logo.svg" width="44" height="44" alt="">
+        <span><strong>VayuChat</strong><small>Sustainability Lab</small></span>
+      </a>
+      <div class="nav-links" role="group" aria-label="Page sections">
+        <a href="#demo">Demo</a>
+        <a href="#apps">Apps</a>
+        <a href="#research">Research</a>
+        <a href="#papers">Papers</a>
       </div>
+      <a class="nav-cta" href="https://huggingface.co/spaces/SustainabilityLabIITGN/VayuChat" target="_blank" rel="noopener noreferrer">Open live demo</a>
     </div>
-  </div>
-</section>
+  </nav>
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Air pollution causes over <b>1.6 million premature deaths annually in India</b>. Yet, decision-makers face persistent barriers in turning diverse tabular data on air pollution, population, and funding into actionable insights. Existing tools demand technical expertise, offer shallow visualizations, or rely on static dashboards, leaving policy questions unresolved.
-          </p>
-          <p>
-            Large language models (LLMs) offer a potential alternative by translating natural-language questions into structured, multi-dataset analyses; however, their reliability for such domain-specific tasks remains unknown.
-          </p>
-          <p>
-            We present <b>VayuBench</b>, to our knowledge, the first executable benchmark for air-quality analytics. It comprises <b>5,000 natural-language queries</b> paired with verified Python code across seven query categories: spatial, temporal, spatio-temporal, population-based, area-based, funding-related and specific pattern queries over multiple real-world datasets.
-          </p>
-          <p>
-            We evaluate <b>13 open-source LLMs</b> under a unified, schema-aware protocol. While Qwen3-Coder-30B attains the strongest performance, frequent column-name and variable errors highlight risks for smaller models.
-          </p>
-          <p>
-            To bridge evaluation with practice, we deploy <b>VayuChat</b>, an interactive assistant that delivers real-time, code-backed analysis for Indian policymakers and citizens. Together, VayuBench and VayuChat demonstrate a reproducible pathway from benchmark to verified execution to deployment, establishing the foundations for trustworthy LLM-driven decision support in environmental monitoring.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">VayuBench: Query Distribution</h2>
-        <div class="content has-text-centered">
-          <img src="./static/images/query_prop.png" alt="Query distribution across 7 categories" style="max-width: 100%; height: auto;">
-          <p class="is-size-6">
-            Distribution of 5,000 queries across categories: Spatial (48.82%), Spatio-Temporal (24.56%), Temporal (12.15%), Funding (4.42%), Population-Based (3.82%), Area-Based (3.72%), and Specific Pattern (2.52%).
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">VayuChat: Interactive Interface</h2>
-        <div class="content has-text-centered">
-          <img src="./static/images/vb_interface.png" alt="VayuChat interface" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 4px;">
-          <p class="is-size-6">
-            VayuChat provides an intuitive interface with AI model selection, quick prompts, natural language query processing, and automated visualizations for air quality analytics.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Key Results</h2>
-        <div class="content has-text-justified">
-          <ul>
-            <li><b>Best Performance:</b> Qwen3-32B achieves 98% executable code with only 1% error rate</li>
-            <li><b>Model Scale Matters:</b> Models under 7B parameters show high error rates (53-97%) due to column naming and syntax issues</li>
-            <li><b>Schema-Aware Prompting Works:</b> Providing data schema information significantly improves code generation accuracy</li>
-            <li><b>Production Deployment:</b> VayuChat serves real users, demonstrating practical viability beyond academic benchmarks</li>
+  <main id="main-content">
+    <header class="hero-section" id="top">
+      <div class="hero-grid page-shell">
+        <div class="hero-copy">
+          <p class="eyebrow"><span aria-hidden="true"></span> Research system · CODS 2025</p>
+          <h1>Ask air-quality data a question. Get an executable answer.</h1>
+          <p class="hero-lede">VayuChat translates natural-language questions into constrained analysis plans, validates them against real Indian environmental data, and returns an answer, table, or chart.</p>
+          <div class="hero-actions" role="group" aria-label="Primary resources">
+            <a class="button-primary" href="https://huggingface.co/spaces/SustainabilityLabIITGN/VayuChat" target="_blank" rel="noopener noreferrer">Try VayuChat live <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="#demo">Watch the demo <span aria-hidden="true">↓</span></a>
+            <a class="text-link" href="https://doi.org/10.1145/3799830.3799884" target="_blank" rel="noopener noreferrer">Read the paper <span aria-hidden="true">↗</span></a>
+          </div>
+          <ul class="release-strip" aria-label="Deployment status">
+            <li><span class="status-dot live" aria-hidden="true"></span><strong>Web</strong> live</li>
+            <li><span class="status-dot pilot" aria-hidden="true"></span><strong>iOS</strong> colleague beta</li>
+            <li><span class="status-dot pilot" aria-hidden="true"></span><strong>Android</strong> private alpha</li>
           </ul>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Impact</h2>
-        <div class="content has-text-justified">
-          <p>
-            VayuBench and VayuChat address a critical gap in environmental analytics by making air quality data accessible to non-technical stakeholders. Our benchmark establishes rigorous evaluation standards for LLMs in domain-specific analytics, while our deployed system demonstrates the practical feasibility of LLM-powered decision support for policy-critical applications.
-          </p>
-          <p>
-            This work has been featured in <a href="https://sustainability-lab.github.io/media.html">Indian Express, Ahmedabad Mirror</a>, and other leading environmental technology publications.
-          </p>
+        <div class="analysis-window" role="region" aria-label="Example VayuChat analysis">
+          <div class="window-bar">
+            <div class="window-brand"><img src="./logo.svg" width="28" height="28" alt="">Local analysis</div>
+            <span class="offline-label">offline ready</span>
+          </div>
+          <div class="question-bubble">How many distinct cities are in the dataset?</div>
+          <div class="trace-line"><span>01</span><code>plan</code><strong>["c", null, "city", "cities"]</strong></div>
+          <div class="trace-line"><span>02</span><code>guard</code><strong>schema + scope verified</strong></div>
+          <div class="result-block">
+            <p>Distinct cities</p>
+            <strong>50</strong>
+            <span>computed locally from the bundled dataset</span>
+          </div>
+          <div class="window-foot"><span>Model proposes</span><i aria-hidden="true"></i><span>code validates</span><i aria-hidden="true"></i><span>data answers</span></div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </header>
 
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@inproceedings{acharya2025vayubench,
+    <section class="metric-band" aria-label="VayuBench at a glance">
+      <div class="page-shell metrics">
+        <div><strong>5,000</strong><span>verified benchmark queries</span></div>
+        <div><strong>13</strong><span>open-source LLMs evaluated</span></div>
+        <div><strong>7</strong><span>air-quality query families</span></div>
+        <div><strong>3</strong><span>web and native deployment paths</span></div>
+      </div>
+    </section>
+
+    <section class="section-block page-shell" id="demo">
+      <div class="section-heading split-heading">
+        <div>
+          <p class="kicker">See it work</p>
+          <h2>From question to evidence, in one flow.</h2>
+        </div>
+        <p>The public Hugging Face Space is the fastest way to explore the research system. The browser prototype runs client-side after its first model download.</p>
+      </div>
+
+      <div class="demo-grid">
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/d6rklL05cs4" title="VayuChat demonstration by Sustainability Lab IIT Gandhinagar" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <aside class="demo-menu" aria-label="VayuChat demos">
+          <a class="demo-item featured" href="https://huggingface.co/spaces/SustainabilityLabIITGN/VayuChat" target="_blank" rel="noopener noreferrer">
+            <span class="item-index">01</span>
+            <span><strong>Hugging Face Space</strong><small>Live, multi-dataset research demo</small></span>
+            <b aria-hidden="true">↗</b>
+          </a>
+          <a class="demo-item" href="https://nipunbatra.github.io/vayuchat-webllm/" target="_blank" rel="noopener noreferrer">
+            <span class="item-index">02</span>
+            <span><strong>Browser-local prototype</strong><small>WebGPU + WebAssembly; first load downloads the model</small></span>
+            <b aria-hidden="true">↗</b>
+          </a>
+          <a class="demo-item" href="https://www.youtube.com/watch?v=d6rklL05cs4" target="_blank" rel="noopener noreferrer">
+            <span class="item-index">03</span>
+            <span><strong>Demo video</strong><small>Official Sustainability Lab walkthrough</small></span>
+            <b aria-hidden="true">↗</b>
+          </a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section-block deployment-section" id="apps">
+      <div class="page-shell">
+        <div class="section-heading split-heading light-heading">
+          <div>
+            <p class="kicker">One research idea, three surfaces</p>
+            <h2>Available on the web. Moving fully onto the phone.</h2>
+          </div>
+          <p>The native pilots bundle both the model and data. Questions, rows, and results stay on the device; the language model proposes a compact plan and native code performs the calculation.</p>
+        </div>
+
+        <div class="deployment-grid">
+          <article class="deployment-card live-card">
+            <div class="card-top"><span>Web</span><strong>Live</strong></div>
+            <h3>Hosted research demo</h3>
+            <p>Explore VayuChat without installing anything. Ask about pollution, meteorology, populations, and NCAP funding.</p>
+            <a href="https://huggingface.co/spaces/SustainabilityLabIITGN/VayuChat" target="_blank" rel="noopener noreferrer">Launch the Space <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="deployment-card">
+            <div class="card-top"><span>iPhone</span><strong>Colleague beta</strong></div>
+            <h3>Native, compact, offline</h3>
+            <p>SwiftUI, Swift Charts, a bundled Gemma 3 270M planner, and a native executor over 146,459 daily city records.</p>
+            <span class="unlinked-status">Invite link shown after release verification</span>
+          </article>
+          <article class="deployment-card">
+            <div class="card-top"><span>Android</span><strong>Private alpha</strong></div>
+            <h3>Same contract, Kotlin runtime</h3>
+            <p>Native tables and charts, grammar-constrained planning, no Python runtime, and no Internet permission.</p>
+            <span class="unlinked-status">Physical-device qualification in progress</span>
+          </article>
+        </div>
+
+        <div class="architecture-line" role="group" aria-label="Native VayuChat architecture">
+          <span><b>1</b> Natural-language question</span>
+          <i aria-hidden="true">→</i>
+          <span><b>2</b> Compact model plan</span>
+          <i aria-hidden="true">→</i>
+          <span><b>3</b> Schema + scope guard</span>
+          <i aria-hidden="true">→</i>
+          <span><b>4</b> Native answer / table / chart</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block page-shell outputs-section">
+      <div class="section-heading split-heading">
+        <div>
+          <p class="kicker">Useful outputs, not chat filler</p>
+          <h2>Answers you can inspect.</h2>
+        </div>
+        <p>VayuChat returns the output type that fits the question: a direct scalar, a sortable table, a legible plot, or a guarded abstention when the requested data is unavailable.</p>
+      </div>
+      <figure class="product-shot">
+        <picture>
+          <source srcset="./static/images/vb_interface.webp" type="image/webp">
+          <img src="./static/images/vb_interface.png" alt="VayuChat web interface with suggested air-quality questions, a conversation area, and analysis controls" loading="lazy" width="12096" height="4950">
+        </picture>
+        <figcaption>Public VayuChat interface. Native pilots use the same question-to-analysis idea with local execution.</figcaption>
+      </figure>
+      <div class="output-types" role="group" aria-label="Supported result types">
+        <article><span>01</span><h3>Direct answers</h3><p>Counts, means, rankings, thresholds, and comparisons.</p></article>
+        <article><span>02</span><h3>Data tables</h3><p>Grouped and filtered results with the underlying values visible.</p></article>
+        <article><span>03</span><h3>Native plots</h3><p>Bar, line, scatter, and correlation views rendered from computed data.</p></article>
+        <article><span>04</span><h3>Explicit limits</h3><p>Unknown places, dates, measures, and unsafe substitutions fail closed.</p></article>
+      </div>
+    </section>
+
+    <section class="section-block research-section" id="research">
+      <div class="page-shell research-grid">
+        <div class="research-copy">
+          <p class="kicker">The benchmark behind the interface</p>
+          <h2>VayuBench tests whether generated analysis actually works.</h2>
+          <p>The benchmark pairs 5,000 natural-language questions with verified Python across seven spatial, temporal, demographic, funding, and pattern-analysis categories. Thirteen open-source models were evaluated under one schema-aware protocol.</p>
+          <p class="research-callout"><strong>Why it matters:</strong> executable code is not the same as a correct answer. The evaluation checks both, exposing column, variable, syntax, and semantic errors that surface in environmental decision support.</p>
+          <div class="research-links">
+            <a class="button-primary dark-button" href="https://doi.org/10.1145/3799830.3799884" target="_blank" rel="noopener noreferrer">Paper at ACM <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="https://github.com/sustainability-lab/VayuBench" target="_blank" rel="noopener noreferrer">VayuBench code <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="https://huggingface.co/datasets/SustainabilityLabIITGN/VayuBench" target="_blank" rel="noopener noreferrer">Dataset <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <figure class="query-figure">
+          <img src="./static/images/query_prop.png" alt="Distribution of VayuBench questions across seven analysis categories" loading="lazy" width="960" height="650">
+          <figcaption>Benchmark composition: spatial questions are the largest group, followed by spatio-temporal and temporal analysis.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section-block page-shell resource-section">
+      <div class="section-heading split-heading">
+        <div>
+          <p class="kicker">Models, data, and code</p>
+          <h2>Built to be examined.</h2>
+        </div>
+        <p>Public research artifacts are linked directly. Fine-tuned mobile weights and native app repositories remain private while release and device qualification are in progress.</p>
+      </div>
+      <div class="resource-grid">
+        <article class="resource-card model-card">
+          <span class="resource-label">Mobile planner</span>
+          <h3>Gemma 3 · 270M · DSL v6</h3>
+          <p>A Q8-quantized, fine-tuned planner emits a fixed compact JSON grammar. It selects the operation; it does not invent the numerical result.</p>
+          <span class="resource-note">Private release artifact · model card pending</span>
+        </article>
+        <article class="resource-card">
+          <span class="resource-label">Native dataset</span>
+          <h3>146,459 daily city records</h3>
+          <p>The current phone pilots cover 50 Indian cities from 1 January 2017 through 31 December 2025, refreshed from CPCB CAAQMS daily archives.</p>
+          <a href="https://huggingface.co/datasets/SustainabilityLabIITGN/VayuBench" target="_blank" rel="noopener noreferrer">Explore the public benchmark data <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="resource-card repository-card">
+          <span class="resource-label">Public repositories</span>
+          <h3>Research + interfaces</h3>
+          <ul>
+            <li><a href="https://github.com/sustainability-lab/VayuBench" target="_blank" rel="noopener noreferrer">VayuBench evaluation code <span aria-hidden="true">↗</span></a></li>
+            <li><a href="https://github.com/nipunbatra/vayuchat-webllm" target="_blank" rel="noopener noreferrer">Browser-local prototype <span aria-hidden="true">↗</span></a></li>
+            <li><a href="https://github.com/sustainability-lab/vayuchat" target="_blank" rel="noopener noreferrer">This project website <span aria-hidden="true">↗</span></a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-block papers-section" id="papers">
+      <div class="page-shell">
+        <div class="section-heading split-heading light-heading">
+          <div>
+            <p class="kicker">Publications</p>
+            <h2>Research lineage and citation.</h2>
+          </div>
+          <p>VayuChat grows from our work on accessible air-quality analysis, then adds executable evaluation through VayuBench and on-device deployment.</p>
+        </div>
+
+        <div class="paper-list">
+          <article class="paper-row">
+            <span class="paper-year">2025</span>
+            <div><p>Research paper</p><h3>VayuBench and VayuChat: Executable Benchmarking and Deployment of LLMs for Multi-Dataset Air Quality Analytics</h3><small>Vedant Acharya, Abhay Pisharodi, Ratnesh Pasi, Rishabh Mondal, Nipun Batra · CODS 2025</small></div>
+            <div class="paper-links"><a href="https://doi.org/10.1145/3799830.3799884" target="_blank" rel="noopener noreferrer">DOI ↗</a><a href="https://sustainability-lab.github.io/papers/2025/vayubench_cods2025.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a><a href="https://repository.iitgn.ac.in/entities/publication/b6bd63bf-0ac3-4c92-a0d6-8254449191ab" target="_blank" rel="noopener noreferrer">IITGN record ↗</a></div>
+          </article>
+          <article class="paper-row">
+            <span class="paper-year">2025</span>
+            <div><p>System demonstration</p><h3>VayuChat: An LLM-Powered Conversational Interface for Air Quality Data Analytics</h3><small>Vedant Acharya, Abhay Pisharodi, Rishabh Mondal, Nipun Batra · CODS 2025 demo</small></div>
+            <div class="paper-links"><a href="https://sustainability-lab.github.io/papers/2025/vayuchat_demo_cods2025.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a><a href="https://www.youtube.com/watch?v=d6rklL05cs4" target="_blank" rel="noopener noreferrer">Video ↗</a></div>
+          </article>
+          <article class="paper-row">
+            <span class="paper-year">2024</span>
+            <div><p>Predecessor system</p><h3>VayuBuddy: an LLM-Powered Chatbot to Democratize Air Quality Insights</h3><small>Zeel B Patel, Yash Bachwana, Nitish Sharma, Sarath Guttikunda, Nipun Batra</small></div>
+            <div class="paper-links"><a href="https://arxiv.org/abs/2411.12760" target="_blank" rel="noopener noreferrer">arXiv ↗</a></div>
+          </article>
+        </div>
+
+        <div class="citation-panel">
+          <div><p class="kicker">Cite the benchmark</p><h3>BibTeX</h3></div>
+          <pre id="bibtex"><code>@inproceedings{acharya2025vayubench,
   title={VayuBench and VayuChat: Executable Benchmarking and Deployment of LLMs for Multi-Dataset Air Quality Analytics},
   author={Acharya, Vedant and Pisharodi, Abhay and Pasi, Ratnesh and Mondal, Rishabh and Batra, Nipun},
-  booktitle={CODS 2025},
-  year={2025}
+  booktitle={13th ACM IKDD International Conference on Data Science},
+  year={2025},
+  doi={10.1145/3799830.3799884}
 }</code></pre>
-  </div>
-</section>
+          <button class="copy-button" type="button" data-copy-target="bibtex"><span>Copy citation</span><b aria-hidden="true">⧉</b></button>
+          <p class="copy-status" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <p>
-        Website template borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
-      </p>
-      <p>
-        <a href="https://sustainability-lab.github.io/">Sustainability Lab</a> |
-        <a href="https://iitgn.ac.in/">IIT Gandhinagar</a>
-      </p>
+  <footer class="site-footer">
+    <div class="page-shell footer-grid">
+      <div><a class="brand footer-brand" href="#top"><img src="./logo.svg" width="42" height="42" alt=""><span><strong>VayuChat</strong><small>Executable air-quality analysis</small></span></a></div>
+      <p>A research project from the <a href="https://sustainability-lab.github.io/" target="_blank" rel="noopener noreferrer">Sustainability Lab</a> at <a href="https://iitgn.ac.in/" target="_blank" rel="noopener noreferrer">IIT Gandhinagar</a>.</p>
+      <div class="footer-links"><a href="https://github.com/sustainability-lab/vayuchat" target="_blank" rel="noopener noreferrer">Website source</a><a href="mailto:nipun.batra@iitgn.ac.in">Contact</a></div>
     </div>
-  </div>
-</footer>
+    <div class="page-shell footer-fineprint"><span>© <span id="current-year">2026</span> Sustainability Lab</span><span>No analytics are embedded on this page. External demos follow their own privacy policies.</span></div>
+  </footer>
 
+  <script src="./static/js/index.js"></script>
 </body>
 </html>
