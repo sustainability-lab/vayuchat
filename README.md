@@ -1,139 +1,61 @@
-# VayuChat Project Website
+# VayuChat project website
 
-A clean, minimal 1-pager for **VayuBench** and **VayuChat** - the first executable benchmark and deployment system for LLMs in air quality analytics.
+The public project page for **VayuBench** and **VayuChat**, hosted at
+[sustainability-lab.github.io/vayuchat](https://sustainability-lab.github.io/vayuchat/).
 
-Built with plain HTML/CSS using the [NERFIES](https://nerfies.github.io/) template approach.
+The page brings the research and current deployment surfaces together:
 
-## About
+- the live [VayuChat Hugging Face Space](https://huggingface.co/spaces/SustainabilityLabIITGN/VayuChat);
+- the [browser-local WebGPU prototype](https://nipunbatra.github.io/vayuchat-webllm/);
+- the official [demo video](https://www.youtube.com/watch?v=d6rklL05cs4);
+- the verified [iOS TestFlight beta](https://testflight.apple.com/join/Yx843m2g)
+  and downloadable Android alpha;
+- the [VayuBench code](https://github.com/sustainability-lab/VayuBench),
+  [public dataset](https://huggingface.co/datasets/SustainabilityLabIITGN/VayuBench),
+  papers, and citation metadata.
 
-Air pollution causes over **1.6 million premature deaths annually in India**. VayuBench and VayuChat bridge the gap between environmental data and actionable insights:
+Native app links are published only after their release gates and public
+artifacts are verified. The current iOS link serves VayuChat 0.5 build 14. The
+Android link serves the exact tested alpha-3 APK from a GitHub prerelease.
 
-- **VayuBench**: 5,000 natural language queries with verified Python code
-- **VayuChat**: Production LLM-powered assistant for policymakers and citizens
+## Stack
 
-## Quick Start
+The site remains deliberately small: plain HTML, CSS, and JavaScript with the
+existing local Bulma stylesheet. It adds no build-time framework or package
+dependencies.
 
-### Preview Locally
-
-Simply open `index.html` in your browser:
+## Preview locally
 
 ```bash
-open index.html
-# or
 python3 -m http.server 8000
-# then visit http://localhost:8000
 ```
 
-### Deploy to GitHub Pages
+Then open [http://localhost:8000](http://localhost:8000).
 
-1. Create a new GitHub repository
+## Link and content checks
 
-2. Push the code:
-   ```bash
-   git add .
-   git commit -m "Initial commit"
-   git remote add origin https://github.com/YOUR_USERNAME/vayuchat.git
-   git push -u origin main
-   ```
+Before publishing, verify that the public demo, code, data, video, paper PDF,
+and DOI links still resolve. Do not add a TestFlight URL or QR code unless the
+iOS repository's public release verification prints `SHARING READY`.
 
-3. Enable GitHub Pages:
-   - Go to Settings → Pages
-   - Source: **GitHub Actions**
-   - Done! Your site will be live at `https://YOUR_USERNAME.github.io/vayuchat/`
+Run the dependency-free structural check before committing:
 
-## Project Structure
-
-```
-vayuchat/
-├── index.html                      # Main page
-├── static/
-│   ├── css/
-│   │   ├── bulma.min.css          # Bulma framework
-│   │   ├── index.css              # Custom styles
-│   │   └── ...
-│   ├── js/
-│   │   ├── index.js               # Custom scripts
-│   │   └── ...
-│   └── images/
-│       ├── query_prop.png         # Query distribution chart
-│       ├── vb_interface.png       # Interface screenshot
-│       └── favicon.svg            # Site icon
-├── .github/workflows/
-│   └── publish.yml                # GitHub Actions deployment
-└── README.md                      # This file
+```bash
+python3 scripts/validate_site.py
 ```
 
-## Customization
+It checks duplicate IDs, local assets, internal fragments, and placeholder
+links without hardcoding the site's current sections or external services.
 
-### Update Links
+## Deployment
 
-Edit `index.html` and replace placeholder `#` links:
+The workflow in `.github/workflows/publish.yml` validates every pull request.
+Only pushes to `main` (or an explicit manual dispatch) can enter the protected
+GitHub Pages deployment environment.
 
-```html
-<!-- Find these lines and update: -->
-<a href="#" class="external-link button...">arXiv</a>
-<a href="#" class="external-link button...">Paper</a>
-<a href="#" class="external-link button...">Code</a>
-<a href="#" class="external-link button...">Demo</a>
-```
+## Primary citation
 
-### Add Content
-
-The HTML is straightforward - each section is clearly marked:
-
-- Hero section with title and authors
-- Abstract
-- Query Distribution figure
-- VayuChat Interface figure
-- Key Results
-- Impact statement
-- BibTeX citation
-- Footer
-
-### Styling
-
-Edit `static/css/index.css` for custom styling. The site uses:
-- **Bulma** for layout/components
-- **Google Fonts** (Google Sans, Noto Sans, Castoro)
-- **Font Awesome** for icons
-- **Academicons** for academic icons
-
-## Tech Stack
-
-- Pure HTML/CSS/JavaScript
-- [Bulma CSS](https://bulma.io/) - Minimal CSS framework
-- [Font Awesome](https://fontawesome.com/) - Icons
-- GitHub Actions - Auto-deployment
-
-## Features
-
-- ✅ Clean, academic design
-- ✅ Fully responsive
-- ✅ Fast loading (no heavy frameworks)
-- ✅ Accessible
-- ✅ Easy to customize
-- ✅ Auto-deploys on push
-
-## Citation
-
-```bibtex
-@inproceedings{acharya2025vayubench,
-  title={VayuBench and VayuChat: Executable Benchmarking and Deployment of LLMs for Multi-Dataset Air Quality Analytics},
-  author={Acharya, Vedant and Pisharodi, Abhay and Pasi, Ratnesh and Mondal, Rishabh and Batra, Nipun},
-  booktitle={CODS 2025},
-  year={2025}
-}
-```
-
-## Credits
-
-- Website template inspired by [NERFIES](https://nerfies.github.io/)
-- [Sustainability Lab](https://sustainability-lab.github.io/) at IIT Gandhinagar
-
-## License
-
-[Add your license here]
-
----
-
-**Together for Cleaner Air** 🌬️
+V. Acharya, A. Pisharodi, R. Pasi, R. Mondal, and N. Batra, “VayuBench and
+VayuChat: Executable Benchmarking and Deployment of LLMs for Multi-Dataset Air
+Quality Analytics,” in *13th ACM IKDD International Conference on Data Science
+(CODS 2025)*, 2025. DOI: [10.1145/3799830.3799884](https://doi.org/10.1145/3799830.3799884).
