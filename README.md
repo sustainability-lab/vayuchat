@@ -1,18 +1,20 @@
 # VayuChat project website
 
-The public project page for **VayuBench** and **VayuChat**, hosted at
+The public product and research page for **VayuChat**, hosted at
 [sustainability-lab.github.io/vayuchat](https://sustainability-lab.github.io/vayuchat/).
 
-The page brings the research and current deployment surfaces together:
+The page leads with the working system and brings its deployment surfaces and
+research evidence together:
 
 - the live [VayuChat Hugging Face Space](https://huggingface.co/spaces/SustainabilityLabIITGN/VayuChat);
 - the [browser-local WebGPU prototype](https://nipunbatra.github.io/vayuchat-webllm/);
 - the official [demo video](https://www.youtube.com/watch?v=d6rklL05cs4);
 - the verified [iOS TestFlight beta](https://testflight.apple.com/join/Yx843m2g)
   and downloadable Android alpha;
-- the [VayuBench code](https://github.com/sustainability-lab/VayuBench),
+- native answer and plot examples;
+- the primary VayuBench paper with its [code](https://github.com/sustainability-lab/VayuBench),
   [public dataset](https://huggingface.co/datasets/SustainabilityLabIITGN/VayuBench),
-  papers, and citation metadata.
+  related work, and citation metadata.
 
 Native app links are published only after their release gates and public
 artifacts are verified. The current iOS link serves VayuChat 0.5 build 14. The
@@ -20,9 +22,10 @@ Android link serves the exact tested alpha-3 APK from a GitHub prerelease.
 
 ## Stack
 
-The site remains deliberately small: plain HTML, CSS, and JavaScript with the
-existing local Bulma stylesheet. It adds no build-time framework or package
-dependencies.
+The site remains deliberately small: semantic HTML, custom CSS, and a small
+dependency-free JavaScript file. It has no build step or runtime framework.
+The interface uses real VayuChat screens and output captures rather than stock
+product mockups.
 
 ## Preview locally
 
