@@ -8,14 +8,15 @@ The page brings the research and current deployment surfaces together:
 - the live [VayuChat Hugging Face Space](https://huggingface.co/spaces/SustainabilityLabIITGN/VayuChat);
 - the [browser-local WebGPU prototype](https://nipunbatra.github.io/vayuchat-webllm/);
 - the official [demo video](https://www.youtube.com/watch?v=d6rklL05cs4);
-- the iOS colleague beta and Android private alpha status;
+- the verified [iOS TestFlight beta](https://testflight.apple.com/join/Yx843m2g)
+  and downloadable Android alpha;
 - the [VayuBench code](https://github.com/sustainability-lab/VayuBench),
   [public dataset](https://huggingface.co/datasets/SustainabilityLabIITGN/VayuBench),
   papers, and citation metadata.
 
-Native app links are intentionally not published until their release gates and
-public artifacts are verified. The site labels those builds as pilots instead
-of exposing private repositories or stale install links.
+Native app links are published only after their release gates and public
+artifacts are verified. The current iOS link serves VayuChat 0.5 build 14. The
+Android link serves the exact tested alpha-3 APK from a GitHub prerelease.
 
 ## Stack
 
@@ -37,11 +38,20 @@ Before publishing, verify that the public demo, code, data, video, paper PDF,
 and DOI links still resolve. Do not add a TestFlight URL or QR code unless the
 iOS repository's public release verification prints `SHARING READY`.
 
+Run the dependency-free structural check before committing:
+
+```bash
+python3 scripts/validate_site.py
+```
+
+It checks duplicate IDs, local assets, internal fragments, and placeholder
+links without hardcoding the site's current sections or external services.
+
 ## Deployment
 
-The workflow in `.github/workflows/publish.yml` deploys the repository root to
-GitHub Pages on pushes to `main`. Pull requests run the same Pages packaging
-path without changing the source stack.
+The workflow in `.github/workflows/publish.yml` validates every pull request.
+Only pushes to `main` (or an explicit manual dispatch) can enter the protected
+GitHub Pages deployment environment.
 
 ## Primary citation
 
