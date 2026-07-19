@@ -1,0 +1,22 @@
+WEBVTT
+
+00:00.000 --> 00:07.000
+Meet VayuChat on Android: a private air-quality analyst powered by a small Gemma model.
+
+00:07.000 --> 00:12.200
+The airplane icon is on, and the app has no internet permission.
+
+00:12.200 --> 00:22.500
+Ask which city had the highest average PM2.5 in 2023. Gemma returns a compact, constrained function plan.
+
+00:22.500 --> 00:32.500
+Kotlin validates the city, pollutant, date, and operation, then executes it over 146,459 ground-measurement records.
+
+00:32.500 --> 00:42.500
+The same pipeline can return a dataframe or a native scatter plot.
+
+00:42.500 --> 00:51.700
+The model handles language. Deterministic code does the math. Every answer can be reviewed and audited.
+
+00:51.700 --> 00:55.000
+VayuChat runs on Android, iPhone, and the hosted research app.

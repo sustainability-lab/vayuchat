@@ -8,9 +8,11 @@ research evidence together:
 
 - the live [VayuChat Hugging Face Space](https://huggingface.co/spaces/SustainabilityLabIITGN/VayuChat);
 - the [browser-local WebGPU prototype](https://nipunbatra.github.io/vayuchat-webllm/);
-- the official [demo video](https://www.youtube.com/watch?v=d6rklL05cs4);
+- the official [hosted demo video](https://www.youtube.com/watch?v=d6rklL05cs4)
+  plus captioned one-minute iPhone and Android recordings;
 - the iOS beta release status and downloadable Android alpha;
-- a real native-app screen and the one-minute offline demonstration;
+- authentic current iPhone, Android, and hosted-app screens;
+- real answer, dataframe, and native-plot output captures;
 - the primary VayuBench paper with its [code](https://github.com/sustainability-lab/VayuBench),
   [public dataset](https://huggingface.co/datasets/SustainabilityLabIITGN/VayuBench),
   related work, and citation metadata.
@@ -24,8 +26,9 @@ tested v0.6 build 15 alpha-4 APK from a GitHub prerelease.
 
 The site remains deliberately small: semantic HTML, custom CSS, and a small
 dependency-free JavaScript file. It has no build step or runtime framework.
-The interface uses a real VayuChat screen rather than decorative product
-mockups or generated plot imagery.
+The interface uses real VayuChat captures rather than decorative product
+mockups or generated plot imagery. The architecture figure is native HTML and
+CSS so its explanation remains accessible, responsive, and easy to update.
 
 ## Preview locally
 
@@ -47,8 +50,9 @@ Run the dependency-free structural check before committing:
 python3 scripts/validate_site.py
 ```
 
-It checks duplicate IDs, local assets, internal fragments, and placeholder
-links without hardcoding the site's current sections or external services.
+It checks duplicate IDs, required sections and release copy, local asset sizes,
+internal fragments, placeholder links, image and iframe labels, video controls,
+new-tab link protection, and the absence of an unverified TestFlight URL.
 
 ## Deployment
 

@@ -1,0 +1,36 @@
+WEBVTT
+
+00:00.315 --> 00:05.667
+Meet VayuChat: a private data assistant
+that runs completely on your iPhone.
+
+00:06.235 --> 00:10.210
+I'll turn on airplane mode.
+Wi-Fi and cellular are off.
+
+00:10.770 --> 00:15.457
+Which city had the highest average
+PM2.5 in 2023?
+
+00:15.848 --> 00:24.101
+The on-device Gemma model creates a compact query.
+Swift executes it across the full dataset.
+
+00:24.613 --> 00:25.242
+And returns the answer.
+
+00:25.473 --> 00:32.053
+Ask for Delhi's monthly PM2.5 trend.
+VayuChat builds a native Swift chart—still offline.
+
+00:32.598 --> 00:42.861
+Ranked dataframes, summary statistics,
+thresholds, correlations, and scatter plots.
+
+00:43.433 --> 00:47.058
+No cloud, no Python runtime,
+and no data leaves the phone.
+
+00:47.524 --> 00:48.979
+Fast, deterministic, and built for real analysis anywhere.
+This is VayuChat.
