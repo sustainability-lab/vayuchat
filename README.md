@@ -9,23 +9,23 @@ research evidence together:
 - the live [VayuChat Hugging Face Space](https://huggingface.co/spaces/SustainabilityLabIITGN/VayuChat);
 - the [browser-local WebGPU prototype](https://nipunbatra.github.io/vayuchat-webllm/);
 - the official [demo video](https://www.youtube.com/watch?v=d6rklL05cs4);
-- the verified [iOS TestFlight beta](https://testflight.apple.com/join/Yx843m2g)
-  and downloadable Android alpha;
-- native answer and plot examples;
+- the iOS beta release status and downloadable Android alpha;
+- a real native-app screen and the one-minute offline demonstration;
 - the primary VayuBench paper with its [code](https://github.com/sustainability-lab/VayuBench),
   [public dataset](https://huggingface.co/datasets/SustainabilityLabIITGN/VayuBench),
   related work, and citation metadata.
 
 Native app links are published only after their release gates and public
-artifacts are verified. The current iOS link serves VayuChat 0.5 build 14. The
-Android link serves the exact tested alpha-3 APK from a GitHub prerelease.
+artifacts are verified. The site currently lists iOS build 15 as under Apple
+beta review without linking to TestFlight. The Android link serves the exact
+tested v0.6 build 15 alpha-4 APK from a GitHub prerelease.
 
 ## Stack
 
 The site remains deliberately small: semantic HTML, custom CSS, and a small
 dependency-free JavaScript file. It has no build step or runtime framework.
-The interface uses real VayuChat screens and output captures rather than stock
-product mockups.
+The interface uses a real VayuChat screen rather than decorative product
+mockups or generated plot imagery.
 
 ## Preview locally
 
