@@ -123,12 +123,16 @@ video:focus-visible {
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 0.86fr) minmax(520px, 1.14fr);
-  gap: clamp(2.5rem, 5vw, 5.5rem);
-  align-items: center;
+  grid-template-areas:
+    "copy workflow"
+    "stage stage";
+  column-gap: clamp(2.5rem, 5vw, 5.5rem);
+  row-gap: clamp(2.5rem, 4vw, 4rem);
+  align-items: start;
   padding-block: clamp(4.8rem, 8vw, 7.5rem) clamp(6rem, 9vw, 8rem);
 }
 
-.hero-copy { position: relative; z-index: 2; max-width: 650px; }
+.hero-copy { position: relative; z-index: 2; grid-area: copy; max-width: 650px; }
 
 .eyebrow,
 .paper-kicker {
@@ -230,11 +234,37 @@ h1 {
   font-size: 0.72rem;
 }
 
-.product-stage {
-  position: relative;
-  width: 100%;
-  min-height: 620px;
+.workflow-visual {
+  grid-area: workflow;
   margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(205, 213, 209, 0.95);
+  border-radius: 1rem;
+  background: #fbf8f1;
+  box-shadow: 0 20px 45px rgba(23, 32, 31, 0.1);
+}
+
+.workflow-visual img { width: 100%; height: auto; }
+
+.workflow-visual figcaption {
+  padding: 0.75rem 1rem 0.85rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.workflow-visual figcaption span { display: none; }
+
+.product-stage {
+  grid-area: stage;
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.55fr) minmax(0, 0.82fr);
+  gap: 1.1rem;
+  align-items: center;
+  width: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: 1.25rem 1.25rem 0.9rem;
   border-radius: 1.6rem;
   background:
     radial-gradient(circle at 76% 18%, rgba(8, 125, 108, 0.12), transparent 36%),
@@ -243,19 +273,18 @@ h1 {
 }
 
 .surface {
-  position: absolute;
+  position: relative;
+  min-width: 0;
   overflow: hidden;
   border: 1px solid rgba(205, 213, 209, 0.95);
   background: white;
-  box-shadow: 0 24px 55px rgba(23, 32, 31, 0.14);
+  box-shadow: 0 18px 42px rgba(23, 32, 31, 0.12);
 }
 
 .hosted-surface {
-  top: 3.2rem;
-  right: 1.7rem;
-  width: 78%;
+  grid-column: 2;
+  width: auto;
   border-radius: 0.8rem;
-  transform: rotate(0.5deg);
 }
 
 .surface-bar {
@@ -277,16 +306,19 @@ h1 {
 
 .surface-bar b {
   margin-left: auto;
+  overflow: hidden;
   color: var(--muted);
   font-family: var(--mono);
   font-size: 0.62rem;
   font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.hosted-surface img { width: 100%; aspect-ratio: 1.44; object-fit: cover; object-position: top; }
+.hosted-surface img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; object-position: center; }
 
 .phone-surface {
-  width: 31%;
+  width: auto;
   border-radius: 1.4rem;
   background: #f4f6f5;
 }
@@ -311,26 +343,22 @@ h1 {
   background: var(--accent);
 }
 
-.phone-surface img { width: 100%; height: 355px; object-fit: cover; object-position: top; }
+.phone-surface img { width: 100%; height: 275px; object-fit: cover; object-position: top; }
 
 .ios-surface {
-  bottom: 3.1rem;
-  left: 1.8rem;
-  transform: rotate(-2.5deg);
+  grid-column: 1;
 }
 
 .android-surface {
-  right: 2.2rem;
-  bottom: 1.6rem;
-  transform: rotate(2deg);
+  grid-column: 3;
 }
 
 .product-stage figcaption {
-  position: absolute;
-  bottom: 1.25rem;
-  left: 34%;
+  grid-column: 1 / -1;
+  padding: 0.15rem 0.25rem 0;
   color: var(--muted);
   font-size: 0.72rem;
+  text-align: center;
 }
 
 .section {
@@ -794,12 +822,10 @@ h2 {
 @media (max-width: 1040px) {
   .hero {
     grid-template-columns: minmax(0, 0.9fr) minmax(440px, 1.1fr);
-    gap: 2.5rem;
+    column-gap: 2.5rem;
   }
 
-  .product-stage { min-height: 570px; }
-  .phone-surface img { height: 320px; }
-  .product-stage figcaption { display: none; }
+  .phone-surface img { height: 245px; }
 }
 
 @media (max-width: 860px) {
@@ -854,12 +880,15 @@ h2 {
     transform: translateY(0);
   }
 
-  .hero { grid-template-columns: 1fr; gap: 4rem; padding-block: 4.5rem 5.5rem; }
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-areas: "copy" "workflow" "stage";
+    gap: 3rem;
+    padding-block: 4.5rem 5.5rem;
+  }
   .hero-copy { max-width: 680px; }
-  .product-stage { min-height: 620px; }
-  .hosted-surface { width: 76%; }
-  .phone-surface { width: 30%; }
-  .phone-surface img { height: 350px; }
+  .product-stage { grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.5fr) minmax(0, 0.78fr); }
+  .phone-surface img { height: 220px; }
 
   .flow-main { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .flow-main li { min-height: 220px; }
@@ -886,21 +915,24 @@ h2 {
 
   .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem; }
 
+  .workflow-visual { overflow-x: auto; overscroll-behavior-inline: contain; }
+  .workflow-visual img { width: 720px; max-width: none; }
+  .workflow-visual figcaption { position: sticky; left: 0; width: calc(100vw - 2rem); background: #fbf8f1; }
+  .workflow-visual figcaption span { display: block; margin-top: 0.2rem; color: var(--accent); }
+
   .product-stage {
-    display: grid;
-    min-height: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
     padding: 1rem;
   }
 
-  .surface { position: relative; inset: auto; width: 100%; transform: none; box-shadow: 0 14px 35px rgba(23, 32, 31, 0.1); }
-  .hosted-surface { order: 1; }
-  .ios-surface { order: 2; }
-  .android-surface { order: 3; }
-  .phone-surface { display: grid; grid-template-columns: 1fr 1.25fr; align-items: stretch; border-radius: 0.9rem; }
-  .phone-surface p { border-right: 1px solid var(--line); border-bottom: 0; align-items: flex-start; padding-top: 1rem; }
-  .phone-surface img { height: 285px; }
-  .product-stage figcaption { position: static; display: block; order: 4; padding: 0.25rem; }
+  .surface { width: 100%; box-shadow: 0 14px 35px rgba(23, 32, 31, 0.1); }
+  .hosted-surface { grid-column: 1 / -1; order: 1; }
+  .ios-surface { grid-column: 1; order: 2; }
+  .android-surface { grid-column: 2; order: 3; }
+  .phone-surface { border-radius: 0.9rem; }
+  .phone-surface img { height: 220px; }
+  .product-stage figcaption { order: 4; padding: 0.25rem; }
 
   .flow-main { grid-template-columns: 1fr; }
   .flow-main li,
