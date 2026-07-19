@@ -90,12 +90,66 @@
         <h1>Ask the air.<br>See the evidence.</h1>
       </div>
 
-      <figure class="workflow-visual">
-        <img src="./static/images/vayuchat-workflow.svg" alt="VayuChat workflow: CPCB measurements are ingested and normalized into packaged local data; Gemma converts a plain-language question into constrained arguments; Swift, Kotlin, or Python validates and executes the plan; the result is rendered as an answer, table, or plot" width="920" height="420">
+      <figure class="workflow-visual" role="img" aria-label="VayuChat workflow: a plain-language question is converted by local Gemma into a compact plan; packaged CPCB measurements feed validated execution in Swift, Kotlin, or Python; the checked result is rendered as an answer, table, or plot">
+        <div class="pulp-workflow">
+          <div class="pulp-flow-row pulp-flow-primary">
+            <div class="pulp-card">
+              <div class="pulp-icon"><img src="./static/images/icons/fa-comment-dots.svg" alt="" width="34" height="34"></div>
+              <div class="pulp-card-copy">
+                <p class="pulp-kicker">Question</p>
+                <strong>Ask in plain language</strong>
+                <p>“Which city had the highest average PM2.5 in 2023?”</p>
+              </div>
+            </div>
+            <span class="pulp-arrow" aria-hidden="true">→</span>
+            <div class="pulp-card">
+              <div class="pulp-icon"><img src="./static/images/icons/fa-wand-magic-sparkles.svg" alt="" width="34" height="34"></div>
+              <div class="pulp-card-copy">
+                <p class="pulp-kicker">Local Gemma</p>
+                <strong>Plans a compact DSL</strong>
+                <p class="pulp-code">[rank · city · PM2.5 · 2023]</p>
+              </div>
+            </div>
+          </div>
+
+          <span class="pulp-arrow pulp-arrow-down" aria-hidden="true">↓</span>
+
+          <div class="pulp-flow-row pulp-flow-secondary">
+            <div class="pulp-card">
+              <div class="pulp-icon"><img src="./static/images/icons/fa-database.svg" alt="" width="34" height="34"></div>
+              <div class="pulp-card-copy">
+                <p class="pulp-kicker">Evidence</p>
+                <strong>CPCB measurements</strong>
+                <p>Ingest + normalize once<br>146,459 records · 50 cities</p>
+              </div>
+            </div>
+            <span class="pulp-arrow" aria-hidden="true">→</span>
+            <div class="pulp-card">
+              <div class="pulp-icon"><img src="./static/images/icons/fa-code.svg" alt="" width="34" height="34"></div>
+              <div class="pulp-card-copy">
+                <p class="pulp-kicker">Guardrail</p>
+                <strong>Validate + execute locally</strong>
+                <p>Check city · pollutant · dates</p>
+                <div class="pulp-runtimes"><span>Swift</span><span>Kotlin</span><span>Python</span></div>
+              </div>
+            </div>
+            <span class="pulp-arrow" aria-hidden="true">→</span>
+            <div class="pulp-card">
+              <div class="pulp-icon"><img src="./static/images/icons/fa-chart-line.svg" alt="" width="34" height="34"></div>
+              <div class="pulp-card-copy">
+                <p class="pulp-kicker">Checked output</p>
+                <strong>Byrnihat · 151.51 µg/m³</strong>
+                <p>Answer · Table · Plot</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="pulp-note">The model plans. Code verifies and computes against packaged ground measurements.</p>
+        </div>
       </figure>
 
       <div class="hero-meta">
-        <p class="lede">VayuChat turns plain-language questions into checked analysis. The iPhone and Android apps bundle a small Gemma model and the data; the hosted research app runs the same plan-and-execute idea in Python.</p>
+        <p class="lede">Ask air-quality questions in plain language. A local Gemma model plans the query; Swift, Kotlin, or Python validates and computes it against packaged CPCB ground measurements.</p>
 
         <div class="hero-controls">
           <div class="hero-actions" role="group" aria-label="Try VayuChat">
