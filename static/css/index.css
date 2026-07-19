@@ -125,11 +125,12 @@ video:focus-visible {
   grid-template-columns: minmax(0, 0.86fr) minmax(520px, 1.14fr);
   grid-template-areas:
     "copy workflow"
+    "meta meta"
     "stage stage";
   column-gap: clamp(2.5rem, 5vw, 5.5rem);
-  row-gap: clamp(2.5rem, 4vw, 4rem);
-  align-items: start;
-  padding-block: clamp(4.8rem, 8vw, 7.5rem) clamp(6rem, 9vw, 8rem);
+  row-gap: clamp(1.25rem, 2vw, 2rem);
+  align-items: center;
+  padding-block: clamp(2.5rem, 4vw, 3.75rem) clamp(3rem, 5vw, 4rem);
 }
 
 .hero-copy { position: relative; z-index: 2; grid-area: copy; max-width: 650px; }
@@ -161,7 +162,7 @@ h1 {
 
 .lede {
   max-width: 620px;
-  margin: 2rem 0 0;
+  margin: 0;
   color: var(--muted);
   font-size: clamp(1.05rem, 1.5vw, 1.25rem);
   line-height: 1.55;
@@ -175,7 +176,7 @@ h1 {
   align-items: center;
 }
 
-.hero-actions { margin-top: 2.25rem; }
+.hero-actions { margin: 0; }
 
 .button {
   display: inline-flex;
@@ -214,9 +215,29 @@ h1 {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1rem;
-  margin: 3.5rem 0 0;
-  padding: 1.25rem 0 0;
-  border-top: 1px solid var(--line);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.hero-meta {
+  grid-area: meta;
+  display: grid;
+  grid-template-columns: minmax(0, 0.86fr) minmax(520px, 1.14fr);
+  gap: clamp(2.5rem, 5vw, 5.5rem);
+  align-items: center;
+  padding-block: 1rem;
+  border-block: 1px solid var(--line);
+}
+
+.hero-controls {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 861px) {
+  .hero-actions { flex-wrap: nowrap; }
+  .hero-actions .button { white-space: nowrap; }
 }
 
 .facts div { display: grid; gap: 0.1rem; }
@@ -238,22 +259,13 @@ h1 {
   grid-area: workflow;
   margin: 0;
   overflow: hidden;
-  border: 1px solid rgba(205, 213, 209, 0.95);
-  border-radius: 1rem;
-  background: #fbf8f1;
-  box-shadow: 0 20px 45px rgba(23, 32, 31, 0.1);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .workflow-visual img { width: 100%; height: auto; }
-
-.workflow-visual figcaption {
-  padding: 0.75rem 1rem 0.85rem;
-  border-top: 1px solid var(--line);
-  color: var(--muted);
-  font-size: 0.72rem;
-}
-
-.workflow-visual figcaption span { display: none; }
 
 .product-stage {
   grid-area: stage;
@@ -833,7 +845,7 @@ h2 {
   }
 
   .hosted-surface img,
-  .phone-surface img { height: 245px; }
+  .phone-surface img { height: 215px; }
 }
 
 @media (max-width: 860px) {
@@ -890,11 +902,12 @@ h2 {
 
   .hero {
     grid-template-columns: 1fr;
-    grid-template-areas: "copy" "workflow" "stage";
-    gap: 3rem;
-    padding-block: 4.5rem 5.5rem;
+    grid-template-areas: "copy" "workflow" "meta" "stage";
+    gap: 2rem;
+    padding-block: 3rem 4rem;
   }
   .hero-copy { max-width: 680px; }
+  .hero-meta { grid-template-columns: 1fr; gap: 1.5rem; }
   .product-stage { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .hosted-surface img,
   .phone-surface img { height: 220px; }
@@ -935,9 +948,7 @@ h2 {
   .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem; }
 
   .workflow-visual { overflow-x: auto; overscroll-behavior-inline: contain; }
-  .workflow-visual img { width: 720px; max-width: none; }
-  .workflow-visual figcaption { position: sticky; left: 0; width: calc(100vw - 2rem); background: #fbf8f1; }
-  .workflow-visual figcaption span { display: block; margin-top: 0.2rem; color: var(--accent); }
+  .workflow-visual img { width: 680px; max-width: none; }
 
   .product-stage {
     grid-template-columns: repeat(3, minmax(200px, 1fr));
