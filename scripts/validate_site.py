@@ -107,7 +107,7 @@ def validate() -> list[str]:
         "Python",
         "vayuchat-iphone-60s.mp4",
         "vayuchat-android-60s.mp4",
-        "vayuchat-workflow-annotated-v2.webp",
+        "vayuchat-workflow.svg",
         "vayuchat-hosted-answer.webp",
         "VayuChat-Android-v0.6-alpha4.apk",
     )

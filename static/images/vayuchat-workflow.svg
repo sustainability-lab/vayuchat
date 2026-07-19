@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">VayuChat question-to-answer workflow</title>
+  <desc id="desc">CPCB measurements are normalized and packaged locally. Gemma converts a natural-language question to constrained arguments. Swift, Kotlin, or Python validates and executes the plan, producing an answer, table, or plot.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#087d6c"/>
+    </marker>
+    <filter id="shadow" x="-15%" y="-20%" width="130%" height="150%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#173230" flood-opacity="0.10"/>
+    </filter>
+    <style>
+      .card{fill:#fff;stroke:#cad8d4;stroke-width:1.5;filter:url(#shadow)}
+      .soft{fill:#eef5f2;stroke:#b9d2cb;stroke-width:1.25}
+      .title{font:600 17px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#17201f}
+      .body{font:500 13px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#4f5f5c}
+      .small{font:500 11px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#687673}
+      .mono{font:500 11px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#21423e}
+      .accent{fill:#087d6c}
+      .line{fill:none;stroke:#087d6c;stroke-width:2;marker-end:url(#arrow)}
+      .data{fill:none;stroke:#5a8580;stroke-width:1.8;stroke-dasharray:6 5;marker-end:url(#arrow)}
+    </style>
+  </defs>
+
+  <g aria-label="CPCB data pipeline">
+    <rect class="card" x="20" y="24" width="202" height="116" rx="14"/>
+    <g transform="translate(36 42)" stroke="#087d6c" stroke-width="2" fill="none">
+      <path d="M18 59V17M9 59h28M18 17l12 8M30 25v12M13 29h10M11 37h14"/>
+      <circle cx="30" cy="14" r="4" fill="#5dc7b4" stroke="none"/>
+    </g>
+    <text class="title" x="88" y="56">CPCB measurements</text>
+    <text class="body" x="88" y="79">2017–2025 · 50 cities</text>
+    <path d="M88 101l18-8 18 5 18-12 18 8 18-5 20 4" fill="none" stroke="#55aa9d" stroke-width="2"/>
+    <text class="small" x="88" y="123">Ground-monitor observations</text>
+
+    <path class="line" d="M222 82H255"/>
+    <rect class="card" x="270" y="24" width="202" height="116" rx="14"/>
+    <circle class="soft" cx="304" cy="61" r="20"/>
+    <path d="M294 61h20M304 51v20" stroke="#087d6c" stroke-width="2"/>
+    <text class="title" x="338" y="56">Ingest + normalize</text>
+    <text class="body" x="338" y="79">Clean dates, units, names</text>
+    <text class="mono" x="338" y="104">146,459 daily records</text>
+    <text class="small" x="338" y="123">Prepared once for every runtime</text>
+
+    <path class="line" d="M472 82H505"/>
+    <rect class="card" x="520" y="24" width="202" height="116" rx="14"/>
+    <g transform="translate(538 43)">
+      <ellipse class="soft" cx="21" cy="9" rx="20" ry="8"/>
+      <path class="soft" d="M1 9v34c0 5 9 9 20 9s20-4 20-9V9"/>
+      <path d="M1 26c0 5 9 9 20 9s20-4 20-9" fill="none" stroke="#87aaa3"/>
+    </g>
+    <text class="title" x="592" y="56">Packaged local data</text>
+    <text class="body" x="592" y="79">Same measurements everywhere</text>
+    <text class="mono" x="592" y="104">iPhone · Android · Web</text>
+    <text class="small" x="592" y="123">No network needed on phones</text>
+  </g>
+
+  <g aria-label="Question execution pipeline">
+    <rect class="card" x="20" y="216" width="202" height="166" rx="14"/>
+    <text class="title" x="38" y="246">Ask in plain language</text>
+    <path class="soft" d="M38 266h166v67H93l-18 16v-16H38z"/>
+    <text class="body" x="53" y="288">Which city had the highest</text>
+    <text class="body" x="53" y="307">average PM2.5 in 2023?</text>
+    <text class="small" x="38" y="365">No query syntax to learn</text>
+
+    <path class="line" d="M222 298H255"/>
+    <rect class="card" x="270" y="216" width="182" height="166" rx="14"/>
+    <text class="title" x="288" y="246">Gemma planner</text>
+    <g transform="translate(317 266)" fill="none" stroke="#087d6c" stroke-width="1.6">
+      <path d="M16 12l28-10 28 10v29L44 54 16 41zM16 12l28 18 28-18M44 30v24"/>
+      <circle cx="16" cy="12" r="4" class="accent" stroke="none"/>
+      <circle cx="44" cy="30" r="4" class="accent" stroke="none"/>
+      <circle cx="72" cy="12" r="4" class="accent" stroke="none"/>
+    </g>
+    <rect class="soft" x="288" y="332" width="146" height="28" rx="6"/>
+    <text class="mono" x="299" y="350">["a","city","pm25",…]</text>
+
+    <path class="line" d="M452 298H485"/>
+    <rect class="card" x="500" y="198" width="208" height="184" rx="14"/>
+    <text class="title" x="518" y="230">Validate + execute locally</text>
+    <text class="body" x="518" y="253">Check city · pollutant · dates</text>
+    <g transform="translate(518 270)">
+      <rect class="soft" width="51" height="27" rx="6"/><text class="mono" x="10" y="18">Swift</text>
+      <rect class="soft" x="59" width="58" height="27" rx="6"/><text class="mono" x="68" y="18">Kotlin</text>
+      <rect class="soft" x="125" width="61" height="27" rx="6"/><text class="mono" x="134" y="18">Python</text>
+    </g>
+    <rect class="soft" x="518" y="316" width="172" height="42" rx="8"/>
+    <text class="mono" x="530" y="335">op=argmax · year=2023</text>
+    <text class="small" x="530" y="350">Code computes the result</text>
+
+    <path class="line" d="M708 298H741"/>
+    <rect class="card" x="756" y="198" width="144" height="184" rx="14"/>
+    <text class="title" x="774" y="230">Checked outputs</text>
+    <rect class="soft" x="774" y="248" width="108" height="43" rx="7"/>
+    <circle class="accent" cx="789" cy="264" r="7"/>
+    <text class="body" x="803" y="264">Answer</text>
+    <text class="small" x="803" y="281">Byrnihat · 151.51</text>
+    <rect class="soft" x="774" y="300" width="51" height="49" rx="7"/>
+    <path d="M783 313h33M783 323h33M783 333h33M794 306v38M805 306v38" stroke="#6f9e97" stroke-width="1"/>
+    <text class="small" x="781" y="366">Table</text>
+    <rect class="soft" x="833" y="300" width="49" height="49" rx="7"/>
+    <path d="M840 338l9-12 8 5 17-20" fill="none" stroke="#087d6c" stroke-width="2"/>
+    <text class="small" x="843" y="366">Plot</text>
+
+    <path class="data" d="M621 140v32c0 18-17 21-17 21"/>
+  </g>
+</svg>
