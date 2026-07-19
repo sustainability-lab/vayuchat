@@ -149,8 +149,16 @@
           </div>
         </div>
 
-        <div class="video-frame">
-          <iframe src="https://www.youtube-nocookie.com/embed/d6rklL05cs4" title="VayuChat product demonstration" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div class="video-frame" data-video-frame>
+          <button class="video-poster" type="button" data-video-play aria-label="Play the one-minute VayuChat demonstration">
+            <span class="play-mark" aria-hidden="true">▶</span>
+            <span class="poster-copy">
+              <strong>Watch the one-minute demo</strong>
+              <small>Airplane mode · answers · tables · plots</small>
+            </span>
+          </button>
+          <iframe data-src="https://www.youtube-nocookie.com/embed/d6rklL05cs4?autoplay=1&amp;rel=0" title="VayuChat product demonstration" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <noscript><a class="video-fallback" href="https://www.youtube.com/watch?v=d6rklL05cs4">Watch the VayuChat demonstration ↗</a></noscript>
         </div>
       </div>
     </section>
