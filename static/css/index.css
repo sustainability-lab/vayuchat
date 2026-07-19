@@ -345,6 +345,7 @@ h2 {
 .link-row { margin-top: 1.8rem; }
 
 .video-frame {
+  position: relative;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -356,6 +357,72 @@ h2 {
   width: 100%;
   height: 100%;
   border: 0;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.video-frame.is-playing iframe { opacity: 1; }
+
+.video-poster {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  width: 100%;
+  padding: clamp(1.4rem, 4vw, 2.5rem);
+  border: 0;
+  background: #101817;
+  color: #f6f5ef;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 180ms ease;
+}
+
+.video-poster:hover { background: #14211f; }
+
+.video-poster:active { transform: translateY(1px); }
+
+.video-poster:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: -5px;
+}
+
+.play-mark {
+  display: grid;
+  flex: 0 0 3rem;
+  width: 3rem;
+  height: 3rem;
+  place-items: center;
+  border: 1px solid rgb(246 245 239 / 55%);
+  border-radius: 50%;
+  font-size: 0.9rem;
+  line-height: 1;
+  padding-left: 0.12rem;
+}
+
+.poster-copy {
+  display: grid;
+  gap: 0.28rem;
+}
+
+.poster-copy strong {
+  font-size: clamp(1.05rem, 2.2vw, 1.45rem);
+  line-height: 1.15;
+}
+
+.poster-copy small {
+  color: rgb(246 245 239 / 68%);
+  font-size: 0.78rem;
+}
+
+.video-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #f6f5ef;
 }
 
 .downloads {
