@@ -258,9 +258,9 @@ h1 {
 .product-stage {
   grid-area: stage;
   display: grid;
-  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.55fr) minmax(0, 0.82fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.1rem;
-  align-items: center;
+  align-items: stretch;
   width: 100%;
   min-height: 0;
   margin: 0;
@@ -283,6 +283,7 @@ h1 {
 
 .hosted-surface {
   grid-column: 2;
+  grid-row: 1;
   width: auto;
   border-radius: 0.8rem;
 }
@@ -315,7 +316,7 @@ h1 {
   white-space: nowrap;
 }
 
-.hosted-surface img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; object-position: center; }
+.hosted-surface img { width: 100%; height: clamp(220px, 22vw, 285px); object-fit: cover; object-position: center; }
 
 .phone-surface {
   width: auto;
@@ -343,14 +344,16 @@ h1 {
   background: var(--accent);
 }
 
-.phone-surface img { width: 100%; height: 275px; object-fit: cover; object-position: top; }
+.phone-surface img { width: 100%; height: clamp(220px, 22vw, 285px); object-fit: cover; object-position: top; }
 
 .ios-surface {
   grid-column: 1;
+  grid-row: 1;
 }
 
 .android-surface {
   grid-column: 3;
+  grid-row: 1;
 }
 
 .product-stage figcaption {
@@ -533,18 +536,21 @@ h2 {
 
 .demo-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
-  gap: clamp(2rem, 4vw, 4rem);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2.25rem);
   align-items: start;
 }
 
 .demo-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
   margin: 0;
   padding-top: 1.15rem;
   border-top: 1px solid var(--ink);
 }
 
-.demo-card-heading { margin-bottom: 1.3rem; }
+.demo-card-heading { min-height: 9.5rem; margin-bottom: 1.3rem; }
 
 .demo-card-heading h3 {
   margin: 0.5rem 0 0;
@@ -563,7 +569,8 @@ h2 {
 
 .video-frame {
   position: relative;
-  aspect-ratio: 16 / 10;
+  width: 100%;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 0.8rem;
@@ -597,7 +604,7 @@ h2 {
 
 .video-poster > img,
 .poster-shade { position: absolute; inset: 0; width: 100%; height: 100%; }
-.video-poster > img { object-fit: cover; object-position: top; }
+.video-poster > img { object-fit: cover; object-position: center; }
 .poster-shade { background: linear-gradient(to top, rgba(6, 16, 15, 0.86), rgba(6, 16, 15, 0.02) 66%); }
 
 .play-mark {
@@ -642,14 +649,14 @@ h2 {
   color: white;
 }
 
-.native-demos { display: grid; gap: 3rem; }
+.native-demos { display: contents; }
 
 .native-demo video {
-  width: min(100%, 330px);
-  max-height: 585px;
-  margin-inline: auto;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
   border: 1px solid var(--line);
-  border-radius: 1.15rem;
+  border-radius: 0.8rem;
   background: #071827;
   box-shadow: 0 18px 45px rgba(23, 32, 31, 0.1);
 }
@@ -825,6 +832,7 @@ h2 {
     column-gap: 2.5rem;
   }
 
+  .hosted-surface img,
   .phone-surface img { height: 245px; }
 }
 
@@ -887,7 +895,8 @@ h2 {
     padding-block: 4.5rem 5.5rem;
   }
   .hero-copy { max-width: 680px; }
-  .product-stage { grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.5fr) minmax(0, 0.78fr); }
+  .product-stage { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .hosted-surface img,
   .phone-surface img { height: 220px; }
 
   .flow-main { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -903,8 +912,18 @@ h2 {
   .output-plot { grid-row: 1 / span 2; grid-column: 2; }
   .output-plot img { height: 850px; }
 
-  .demo-grid { grid-template-columns: 1fr; }
-  .native-demos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .demo-grid {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(270px, 82%);
+    gap: 1.25rem;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    padding-bottom: 0.8rem;
+    scroll-snap-type: inline mandatory;
+  }
+  .demo-card { scroll-snap-align: start; }
+  .demo-card-heading { min-height: 0; }
   .research-layout { grid-template-columns: 1fr; }
   .research-layout .section-intro { margin-bottom: 1rem; }
 }
@@ -921,18 +940,20 @@ h2 {
   .workflow-visual figcaption span { display: block; margin-top: 0.2rem; color: var(--accent); }
 
   .product-stage {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
     gap: 1rem;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
     padding: 1rem;
   }
 
   .surface { width: 100%; box-shadow: 0 14px 35px rgba(23, 32, 31, 0.1); }
-  .hosted-surface { grid-column: 1 / -1; order: 1; }
-  .ios-surface { grid-column: 1; order: 2; }
-  .android-surface { grid-column: 2; order: 3; }
+  .hosted-surface { grid-column: 2; }
+  .ios-surface { grid-column: 1; }
+  .android-surface { grid-column: 3; }
   .phone-surface { border-radius: 0.9rem; }
   .phone-surface img { height: 220px; }
-  .product-stage figcaption { order: 4; padding: 0.25rem; }
+  .product-stage figcaption { display: none; }
 
   .flow-main { grid-template-columns: 1fr; }
   .flow-main li,
@@ -947,9 +968,6 @@ h2 {
   .output-answer img,
   .output-table img,
   .output-plot img { height: auto; }
-
-  .native-demos { grid-template-columns: 1fr; }
-  .native-demo video { width: min(100%, 350px); }
 
   .downloads > .download-row { grid-template-columns: 3.5rem 1fr; gap: 0.75rem; }
   .downloads .download-row > b { grid-column: 2; justify-self: start; }
