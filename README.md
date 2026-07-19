@@ -18,7 +18,7 @@ research evidence together:
 Native app links are published only after their release gates and public
 artifacts are verified. The site currently lists iOS build 15 as under Apple
 beta review without linking to TestFlight. The Android link serves the exact
-tested alpha-3 APK from a GitHub prerelease.
+tested v0.6 build 15 alpha-4 APK from a GitHub prerelease.
 
 ## Stack
 
