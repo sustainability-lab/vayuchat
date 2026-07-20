@@ -119,6 +119,14 @@ def validate() -> list[str]:
         if expected not in source:
             errors.append(f"missing release-critical content: {expected}")
 
+    hosted_app_url = "https://huggingface.co/spaces/SustainabilityLabIITGN/VayuChat"
+    if source.count(hosted_app_url) != 1:
+        errors.append("hosted app should have exactly one primary link")
+
+    for duplicate_pattern in ("product-stage", "flow-main"):
+        if duplicate_pattern in source:
+            errors.append(f"duplicate product explanation returned: {duplicate_pattern}")
+
     if "testflight.apple.com" in source.lower():
         errors.append(
             "TestFlight URL found: run the iOS public-release gate and update this guard "
