@@ -11,6 +11,7 @@ from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 ENTRYPOINT = ROOT / "index.html"
+STYLESHEET = ROOT / "static/css/index.css"
 
 
 class SiteParser(HTMLParser):
@@ -38,6 +39,7 @@ class SiteParser(HTMLParser):
 def validate() -> list[str]:
     errors: list[str] = []
     source = ENTRYPOINT.read_text(encoding="utf-8")
+    stylesheet = STYLESHEET.read_text(encoding="utf-8")
     parser = SiteParser()
     parser.feed(source)
     parser.close()
@@ -120,12 +122,16 @@ def validate() -> list[str]:
             errors.append(f"missing release-critical content: {expected}")
 
     hosted_app_url = "https://huggingface.co/spaces/SustainabilityLabIITGN/VayuChat"
-    if source.count(hosted_app_url) != 1:
-        errors.append("hosted app should have exactly one primary link")
+    if source.count(hosted_app_url) != 3:
+        errors.append("hosted app should be linked from the hero, demo, and app directory")
 
     for duplicate_pattern in ("product-stage", "flow-main"):
         if duplicate_pattern in source:
             errors.append(f"duplicate product explanation returned: {duplicate_pattern}")
+
+    for nonresponsive_pattern in ("width: 820px", ".workflow-visual { overflow-x: auto"):
+        if nonresponsive_pattern in stylesheet:
+            errors.append(f"non-responsive workflow styling returned: {nonresponsive_pattern}")
 
     if "testflight.apple.com" in source.lower():
         errors.append(
