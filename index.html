@@ -90,7 +90,7 @@
         <h1>Ask the air.<br>See the evidence.</h1>
       </div>
 
-      <figure class="workflow-visual" role="img" aria-label="VayuChat workflow: a plain-language question is converted by local Gemma into a compact plan; packaged CPCB measurements feed validated execution in Swift, Kotlin, or Python; the checked result is rendered as an answer, table, or plot">
+      <figure class="workflow-visual" id="how" role="img" aria-label="VayuChat workflow: a plain-language question is converted by local Gemma into a compact plan; packaged CPCB measurements feed validated execution in Swift, Kotlin, or Python; the checked result is rendered as an answer, table, or plot">
         <div class="pulp-workflow">
           <div class="pulp-flow-row pulp-flow-primary">
             <div class="pulp-card">
@@ -120,7 +120,7 @@
               <div class="pulp-card-copy">
                 <p class="pulp-kicker">Evidence</p>
                 <strong>CPCB measurements</strong>
-                <p>Ingest + normalize once<br>146,459 records · 50 cities</p>
+                <p>Ingest and normalize once</p>
               </div>
             </div>
             <span class="pulp-arrow" aria-hidden="true">→</span>
@@ -138,8 +138,8 @@
               <div class="pulp-icon"><img src="./static/images/icons/fa-chart-line.svg" alt="" width="34" height="34"></div>
               <div class="pulp-card-copy">
                 <p class="pulp-kicker">Checked output</p>
-                <strong>Byrnihat · 151.51 µg/m³</strong>
-                <p>Answer · Table · Plot</p>
+                <strong>Checked result</strong>
+                <p>Answer · table · plot</p>
               </div>
             </div>
           </div>
@@ -149,7 +149,7 @@
       </figure>
 
       <div class="hero-meta">
-        <p class="lede">Ask air-quality questions in plain language. A local Gemma model plans the query; Swift, Kotlin, or Python validates and computes it against packaged CPCB ground measurements.</p>
+        <p class="lede">Ask about Indian air quality and get checked answers, tables, and plots—entirely offline on iPhone and Android.</p>
 
         <div class="hero-controls">
           <div class="hero-actions" role="group" aria-label="Try VayuChat">
@@ -166,61 +166,6 @@
         </div>
       </div>
 
-      <figure class="product-stage">
-        <div class="surface hosted-surface">
-          <div class="surface-bar"><span></span><span></span><span></span><b>Hosted research app · Python</b></div>
-          <img src="./static/images/vayuchat-hosted-answer.webp" alt="The hosted VayuChat app answering that Byrnihat had the highest average PM2.5 in 2023 at 151.51 micrograms per cubic metre" width="1280" height="720">
-        </div>
-        <div class="surface phone-surface ios-surface">
-          <p><span></span> iPhone · local Gemma</p>
-          <img src="./static/images/vayuchat-ios-current.webp" alt="VayuChat version 0.6 build 15 ready completely offline on iPhone with 146,459 records" width="760" height="1648">
-        </div>
-        <div class="surface phone-surface android-surface">
-          <p><span></span> Android · local Gemma</p>
-          <img src="./static/images/vayuchat-android-current.webp" alt="VayuChat ready completely offline on Android with no account, server, or internet permission" width="760" height="1689">
-        </div>
-        <figcaption>One checked analysis contract across hosted Python and local Gemma on both phones.</figcaption>
-      </figure>
-    </section>
-
-    <section class="section page-shell" id="how">
-      <div class="section-intro">
-        <p class="eyebrow">How it works</p>
-        <h2>The model chooses the function. Code does the math.</h2>
-        <p>The language model never invents the final number. It emits a small, constrained plan; the runtime validates the arguments, computes against the ingested measurements, and renders the result.</p>
-      </div>
-
-      <figure class="flow-diagram">
-        <ol class="flow-main">
-          <li>
-            <span class="flow-number">01</span>
-            <div><strong>Natural-language question</strong><small>“Which city had the highest average PM2.5 in 2023?”</small></div>
-          </li>
-          <li>
-            <span class="flow-number">02</span>
-            <div><strong>LLM emits function arguments</strong><code>["a","city","pm25","argmax",…]</code></div>
-          </li>
-          <li>
-            <span class="flow-number">03</span>
-            <div><strong>Guard, execute, render</strong><small>Validate city · pollutant · dates · operation</small></div>
-            <p class="runtime-list"><span>Swift</span><span>Kotlin</span><span>Python</span></p>
-          </li>
-          <li>
-            <span class="flow-number">04</span>
-            <div><strong>Checked result</strong><small>Answer · dataframe · plot · audit trail</small></div>
-          </li>
-        </ol>
-        <div class="data-rail">
-          <span>Ground measurements</span>
-          <b aria-hidden="true">→</b>
-          <span>ingest + normalize</span>
-          <b aria-hidden="true">→</b>
-          <span>local data engine</span>
-          <b aria-hidden="true">↗</b>
-          <span class="data-target">execution</span>
-        </div>
-        <figcaption>On iPhone and Android, the Gemma planner, normalized data, execution engine, and result all stay on the phone.</figcaption>
-      </figure>
     </section>
 
     <section class="section outputs-section" id="outputs">
@@ -237,7 +182,7 @@
             <img src="./static/images/output-answer.webp" alt="VayuChat reporting Delhi as the city with the highest average PM2.5 in 2023" width="760" height="887" loading="lazy">
           </figure>
           <figure class="output-card output-plot">
-            <div class="output-copy"><span>Native plot</span><strong>Humidity versus PM2.5 in Delhi</strong><small>801 plotted values and a computed Pearson correlation.</small></div>
+            <div class="output-copy"><span>Native plot</span><strong>Humidity versus PM2.5 in Delhi</strong><small>Pearson correlation across 3,287 valid pairs; 801 points plotted for legibility.</small></div>
             <img src="./static/images/output-plot.webp" alt="Native VayuChat scatter plot of humidity versus PM2.5 in Delhi" width="760" height="1562" loading="lazy">
           </figure>
           <figure class="output-card output-table">
@@ -304,22 +249,15 @@
       <div class="downloads">
         <div class="download-row unavailable">
           <span class="platform">iOS</span>
-          <span><strong>iPhone beta · build 15</strong><small>Attached to TestFlight · external Beta App Review pending</small></span>
-          <b aria-hidden="true">Apple review</b>
+          <span><strong>iPhone beta</strong><small>Build 15 · Apple external review pending</small></span>
+          <b aria-hidden="true">Pending</b>
         </div>
         <a class="download-row" href="https://github.com/sustainability-lab/vayuchat/releases/download/android-v0.6.0-alpha.4/VayuChat-Android-v0.6-alpha4.apk">
           <span class="platform">APK</span>
-          <span><strong>Android alpha 4</strong><small>v0.6 build 15 · arm64 · Android 8+ · 312 MB</small></span>
+          <span><strong>Android alpha 4</strong><small>Build 15 · arm64 · Android 8+ · 312 MB · SHA-256 65e9bcf4…</small></span>
           <b aria-hidden="true">↓</b>
         </a>
-        <a class="download-row" href="https://huggingface.co/spaces/SustainabilityLabIITGN/VayuChat" target="_blank" rel="noopener noreferrer">
-          <span class="platform">Web</span>
-          <span><strong>Hosted research app</strong><small>Run the research system without installing an app</small></span>
-          <b aria-hidden="true">↗</b>
-        </a>
       </div>
-
-      <p class="release-note">The iPhone TestFlight button will appear only after Apple clears build 15 for external testers. Android is a direct-testing alpha; the published APK SHA-256 begins <code>65e9bcf4</code>.</p>
     </section>
 
     <section class="section research-section" id="research">
@@ -358,7 +296,6 @@
             </div>
           </details>
 
-          <p class="related">Related: <a href="https://sustainability-lab.github.io/papers/2025/vayuchat_demo_cods2025.pdf" target="_blank" rel="noopener noreferrer">VayuChat system demonstration ↗</a> · <a href="https://arxiv.org/abs/2411.12760" target="_blank" rel="noopener noreferrer">VayuBuddy predecessor ↗</a></p>
         </article>
       </div>
     </section>
