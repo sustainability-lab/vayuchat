@@ -477,7 +477,7 @@ h2 {
   border-top: 1px solid var(--ink);
 }
 
-.demo-card-heading { min-height: 9.5rem; margin-bottom: 1.3rem; }
+.demo-card-heading { min-height: 10.75rem; margin-bottom: 1.3rem; }
 
 .demo-card-heading h3 {
   margin: 0.5rem 0 0;
@@ -493,6 +493,18 @@ h2 {
   color: var(--muted);
   font-size: 0.84rem;
 }
+
+.demo-product-link,
+.demo-product-status {
+  display: inline-block;
+  margin-top: 0.8rem;
+  font-size: 0.78rem;
+  font-weight: 650;
+}
+
+.demo-product-link { color: var(--accent); text-underline-offset: 0.18em; }
+.demo-product-link:hover { color: var(--ink); }
+.demo-product-status { color: var(--faint); }
 
 .video-frame {
   position: relative;
@@ -820,8 +832,23 @@ h2 {
   }
   .hero-copy { max-width: 680px; }
   .hero-meta { grid-template-columns: 1fr; gap: 1.5rem; }
-  .workflow-visual { overflow-x: auto; overscroll-behavior-inline: contain; }
-  .pulp-workflow { width: 820px; max-width: none; }
+  .workflow-visual { overflow: visible; }
+  .pulp-workflow { width: 100%; max-width: 100%; padding: 1rem; }
+  .pulp-flow-row { justify-content: stretch; }
+  .pulp-flow-primary {
+    grid-template-columns: minmax(0, 1fr) 32px minmax(0, 1fr);
+  }
+  .pulp-flow-secondary {
+    grid-template-columns: minmax(0, 1fr) 32px minmax(0, 1fr) 32px minmax(0, 1fr);
+  }
+  .pulp-card {
+    min-height: 0;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .pulp-flow-secondary .pulp-card { min-height: 0; }
+  .pulp-icon { flex: 0 0 auto; }
+  .pulp-arrow { width: 32px; height: 32px; }
   .outputs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .output-answer,
   .output-table,
@@ -850,6 +877,22 @@ h2 {
   h2 { font-size: clamp(2.35rem, 12vw, 3.25rem); }
 
   .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem; }
+
+  .pulp-workflow { gap: 0.7rem; border-radius: 1rem; }
+  .pulp-flow-primary,
+  .pulp-flow-secondary {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.7rem;
+  }
+  .pulp-card {
+    min-height: 0;
+    padding: 0.9rem;
+    flex-direction: row;
+    align-items: center;
+  }
+  .pulp-icon { flex: 0 0 44px; }
+  .pulp-flow-row > .pulp-arrow { transform: rotate(90deg); }
+  .pulp-note { padding: 0 0.35rem; text-align: left; }
 
   .outputs-grid { grid-template-columns: 1fr; }
   .output-plot { grid-column: auto; grid-row: auto; }
