@@ -133,11 +133,13 @@ def validate() -> list[str]:
         if nonresponsive_pattern in stylesheet:
             errors.append(f"non-responsive workflow styling returned: {nonresponsive_pattern}")
 
-    if "testflight.apple.com" in source.lower():
-        errors.append(
-            "TestFlight URL found: run the iOS public-release gate and update this guard "
-            "in the same reviewed change only after it prints SHARING READY"
-        )
+    testflight_url = "https://testflight.apple.com/join/Yx843m2g"
+    if source.count(testflight_url) != 2:
+        errors.append("approved TestFlight build should be linked from the iPhone demo and app directory")
+    if source.lower().count("testflight.apple.com") != source.count(testflight_url):
+        errors.append("unexpected TestFlight URL found")
+    if "Apple external review pending" in source:
+        errors.append("stale TestFlight review-pending status returned")
 
     if not (ROOT / "static/images/vayuchat-hero-og.webp").exists():
         errors.append("missing social preview: static/images/vayuchat-hero-og.webp")
