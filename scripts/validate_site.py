@@ -47,7 +47,15 @@ def validate() -> list[str]:
     if parser.tags["h1"] != 1:
         errors.append(f"expected exactly one h1, found {parser.tags['h1']}")
 
-    required_sections = {"top", "how", "outputs", "demo", "apps", "research"}
+    required_sections = {
+        "top",
+        "how",
+        "interfaces",
+        "outputs",
+        "demo",
+        "apps",
+        "research",
+    }
     missing_sections = required_sections.difference(parser.ids)
     for section_id in sorted(missing_sections):
         errors.append(f"missing required section: #{section_id}")
@@ -102,6 +110,7 @@ def validate() -> list[str]:
                 errors.append(f"external new-tab link is missing rel protection: {attributes.get('href')}")
 
     required_copy = (
+        "858,604",
         "146,459",
         "2017–2025",
         "Swift",
@@ -114,16 +123,18 @@ def validate() -> list[str]:
         "fa-database.svg",
         "fa-code.svg",
         "fa-chart-line.svg",
-        "vayuchat-hosted-answer.webp",
+        "vayuchat-react-comparison.webp",
         "VayuChat-Android-v0.6-alpha4.apk",
     )
     for expected in required_copy:
         if expected not in source:
             errors.append(f"missing release-critical content: {expected}")
 
-    hosted_app_url = "https://huggingface.co/spaces/SustainabilityLabIITGN/VayuChat"
+    hosted_app_url = "https://nipun-vayuchat-v2.hf.space/"
     if source.count(hosted_app_url) != 3:
-        errors.append("hosted app should be linked from the hero, demo, and app directory")
+        errors.append(
+            "current web app should be linked from the hero, interface card, and preview"
+        )
 
     for duplicate_pattern in ("product-stage", "flow-main"):
         if duplicate_pattern in source:
@@ -134,8 +145,8 @@ def validate() -> list[str]:
             errors.append(f"non-responsive workflow styling returned: {nonresponsive_pattern}")
 
     testflight_url = "https://testflight.apple.com/join/Yx843m2g"
-    if source.count(testflight_url) != 2:
-        errors.append("approved TestFlight build should be linked from the iPhone demo and app directory")
+    if source.count(testflight_url) != 1:
+        errors.append("approved TestFlight build should be linked once from the iPhone card")
     if source.lower().count("testflight.apple.com") != source.count(testflight_url):
         errors.append("unexpected TestFlight URL found")
     if "Apple external review pending" in source:
