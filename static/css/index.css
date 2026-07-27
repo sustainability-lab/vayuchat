@@ -417,12 +417,14 @@ h2 {
 
 .outputs-grid {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 2fr) minmax(280px, 0.72fr);
   gap: 1.4rem;
-  align-items: start;
+  align-items: stretch;
 }
 
 .output-card {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
   margin: 0;
   overflow: hidden;
   border-radius: 1rem;
@@ -449,14 +451,35 @@ h2 {
 .output-copy strong { font-size: 1.08rem; line-height: 1.3; }
 .output-copy small { color: var(--muted); font-size: 0.78rem; }
 
-.output-card img { width: 100%; object-fit: cover; object-position: top; }
+.output-image-stage {
+  display: grid;
+  min-height: 560px;
+  overflow: hidden;
+}
 
-.output-answer { grid-column: 1 / span 5; }
-.output-answer img { height: 430px; }
-.output-table { grid-column: 1 / span 5; }
-.output-table img { height: 470px; }
-.output-plot { grid-column: 6 / -1; grid-row: 1 / span 2; }
-.output-plot img { height: 900px; object-position: 50% 8%; }
+.output-image-stage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.output-web .output-image-stage {
+  place-items: center;
+  padding: 1.25rem;
+  background: #f4f3ef;
+}
+
+.output-ios .output-image-stage {
+  place-items: end center;
+  padding: 1.25rem 1.25rem 0;
+  background: linear-gradient(180deg, #f2f6fc 0%, #e7eef8 100%);
+}
+
+.output-ios img {
+  max-width: 300px;
+  object-position: center bottom;
+}
 
 .demo-section { background: var(--white); }
 .demo-intro { max-width: 760px; }
@@ -839,12 +862,8 @@ h2 {
   .pulp-flow-secondary .pulp-card { min-height: 0; }
   .pulp-icon { flex: 0 0 auto; }
   .pulp-arrow { width: 32px; height: 32px; }
-  .outputs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .output-answer,
-  .output-table,
-  .output-plot { grid-column: auto; grid-row: auto; }
-  .output-plot { grid-row: 1 / span 2; grid-column: 2; }
-  .output-plot img { height: 850px; }
+  .outputs-grid { grid-template-columns: minmax(0, 1.5fr) minmax(220px, 0.8fr); }
+  .output-image-stage { min-height: 470px; }
 
   .demo-grid {
     grid-template-columns: none;
@@ -885,10 +904,11 @@ h2 {
   .pulp-note { padding: 0 0.35rem; text-align: left; }
 
   .outputs-grid { grid-template-columns: 1fr; }
-  .output-plot { grid-column: auto; grid-row: auto; }
-  .output-answer img,
-  .output-table img,
-  .output-plot img { height: auto; }
+  .output-image-stage { min-height: 0; }
+  .output-web .output-image-stage { padding: 0.75rem; }
+  .output-web img { height: auto; }
+  .output-ios .output-image-stage { min-height: 540px; }
+  .output-ios img { height: 540px; }
 
   .downloads > .download-row { grid-template-columns: 3.5rem 1fr; gap: 0.75rem; }
   .downloads .download-row > b { grid-column: 2; justify-self: start; }
