@@ -27,19 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  document.querySelectorAll("[data-video-frame]").forEach((videoFrame) => {
-    const videoButton = videoFrame.querySelector("[data-video-play]");
-    const video = videoFrame.querySelector("iframe[data-src]");
-    if (!videoButton || !video) return;
-
-    videoButton.addEventListener("click", () => {
-      video.src = video.dataset.src;
-      videoFrame.classList.add("is-playing");
-      videoButton.remove();
-      video.focus();
-    }, { once: true });
-  });
-
   const sectionLinks = navLinks.filter((link) => link.getAttribute("href")?.startsWith("#"));
   const sections = sectionLinks.map((link) => document.querySelector(link.getAttribute("href"))).filter(Boolean);
 
