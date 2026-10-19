@@ -13,6 +13,13 @@ research evidence together:
 - the iOS beta release status and downloadable Android alpha;
 - authentic current iPhone, Android, and hosted-app screens;
 - real answer, dataframe, and native-plot output captures;
+- the October 2026 update video (click-to-play: YouTube loads only when a visitor presses play);
+- **weather on a grid**: the WRF gridded-weather feature (535 CPCB stations vs a value in every
+  0.25° cell of India, 2023–2024), with a real heatwave map and the app's own Biparjoy GIF export.
+  The station map and grid figure are drawn from the WRF app's own `stations.csv`, state outlines
+  and a 2x capture of its canvas;
+- **in the field** with CEEW: Thane's AQDSS (CPCB NCAP compendium, Sept 2026), Clean Air Horizons
+  2026 (photo: CEEW), and the Hindustan Times op-ed (Aug 2026);
 - the primary VayuBench paper with its [code](https://github.com/sustainability-lab/VayuBench),
   [public dataset](https://huggingface.co/datasets/SustainabilityLabIITGN/VayuBench),
   related work, and citation metadata.
