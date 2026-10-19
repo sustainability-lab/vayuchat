@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f7f7f3">
-  <meta name="description" content="VayuChat turns natural-language questions about Indian air quality into checked answers, dataframes, and plots on iPhone, Android, and the hosted research app.">
+  <meta name="description" content="VayuChat turns natural-language questions about Indian air quality and weather into checked answers, dataframes, maps, and plots on iPhone, Android, and the hosted research app. New: gridded weather from our own WRF simulation, every 27 km of India.">
   <meta name="author" content="Sustainability Lab, IIT Gandhinagar">
   <meta name="robots" content="index, follow">
 
@@ -75,7 +75,9 @@
 
       <nav class="nav-links" id="primary-links" aria-label="Primary navigation">
         <a href="#how">How it works</a>
+        <a href="#weather">Weather <span class="nav-new">New</span></a>
         <a href="#interfaces">Interfaces</a>
+        <a href="#field">In the field</a>
         <a href="#research">Research</a>
       </nav>
     </div>
@@ -84,6 +86,7 @@
   <main id="main-content">
     <section class="hero page-shell" id="top">
       <div class="hero-copy">
+        <a class="news-pill" href="#weather"><span>New</span> Gridded weather from our own WRF model <span aria-hidden="true">→</span></a>
         <p class="eyebrow">One system · three runtimes</p>
         <h1>Ask the air.<br>See the evidence.</h1>
       </div>
@@ -166,6 +169,78 @@
 
     </section>
 
+    <section class="section update-section" id="update">
+      <div class="page-shell update-layout">
+        <div class="section-intro update-intro">
+          <p class="eyebrow">What's new · October 2026</p>
+          <h2>Two minutes on VayuChat today.</h2>
+          <p>Checked answers over official CPCB data, weather on a grid from our own WRF model, offline phone apps, and where VayuChat is being used, with CEEW, in Thane and New Delhi.</p>
+        </div>
+
+        <figure class="video-figure">
+          <a class="video-facade" href="https://youtu.be/d3_aga3-P20" target="_blank" rel="noopener noreferrer" data-youtube-id="d3_aga3-P20" aria-label="Play the VayuChat October 2026 update video (loads YouTube)">
+            <img src="./static/images/vayuchat-october-2026-poster.webp" alt="VayuChat October 2026 update video: from 535 stations to every 27 km of India" width="1600" height="900" loading="lazy">
+            <span class="video-play" aria-hidden="true"><span></span></span>
+          </a>
+          <figcaption>VayuChat update, October 2026 · 2 min · YouTube loads only when you press play.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section weather-section" id="weather">
+      <div class="page-shell">
+        <div class="section-intro">
+          <p class="eyebrow">New · Weather on a grid</p>
+          <h2>From 535 stations to every 27 km of India.</h2>
+          <p>VayuChat can now answer questions over gridded weather from the Sustainability Lab's own WRF simulation, not only over monitoring stations: a value for every 0.25° cell of India, on every day of 2023 and 2024. Ask about a heatwave or a cyclone and get back a map or an animation you can download.</p>
+        </div>
+
+        <div class="grid-compare">
+          <figure class="grid-card">
+            <img src="./static/images/wrf-stations.webp" alt="Map of India with the 535 CPCB air-quality monitoring stations VayuChat answers from, clustered around cities" width="1200" height="1127" loading="lazy">
+            <figcaption><span class="interface-label">Before · stations</span><strong>535 monitoring stations</strong> Measurements exist where stations are, mostly in cities.</figcaption>
+          </figure>
+          <span class="grid-arrow" aria-hidden="true">→</span>
+          <figure class="grid-card">
+            <img src="./static/images/wrf-heatwave-grid.webp" alt="WRF map of mean daily maximum temperature over India for 25–31 May 2024, with a value in every 0.25 degree grid cell" width="1200" height="1127" loading="lazy">
+            <figcaption><span class="interface-label">Now · WRF grid</span><strong>14,375 grid cells, every day</strong> A modelled value in every cell of the country, including where no station exists.</figcaption>
+          </figure>
+        </div>
+
+        <dl class="facts grid-facts" aria-label="WRF data in VayuChat">
+          <div><dt>115 × 125</dt><dd>cells of 0.25° (about 27 km)</dd></div>
+          <div><dt>731</dt><dd>days, 2023 and 2024</dd></div>
+          <div><dt>1,05,08,125</dt><dd>values per variable</dd></div>
+          <div><dt>4</dt><dd>variables: max temperature, rainfall, 10 m wind, boundary-layer height</dd></div>
+        </dl>
+
+        <div class="weather-examples">
+          <article class="interface-card weather-card">
+            <div class="weather-card-media">
+              <img src="./static/images/wrf-heatwave-grid.webp" alt="Mean daily maximum temperature across India, 25–31 May 2024, reaching 48.6 °C in the north" width="1200" height="1127" loading="lazy">
+            </div>
+            <div class="weather-card-body">
+              <span class="interface-label">Ask about a heatwave</span>
+              <p class="weather-question">“Map the mean maximum temperature across India during the 25–31 May 2024 heatwave.”</p>
+              <p>The answer is a map of the week's mean daily maximum, up to 48.6 °C across the north, with the states and cities that were hottest. Ask for an animation instead and VayuChat plays it day by day.</p>
+            </div>
+          </article>
+          <article class="interface-card weather-card">
+            <div class="weather-card-media">
+              <img src="./static/images/wrf-biparjoy-rainfall.gif" alt="Animated GIF exported from VayuChat: daily rainfall over Rajasthan from 13 to 21 June 2023 as the remnants of Cyclone Biparjoy crossed it" width="752" height="763" loading="lazy">
+            </div>
+            <div class="weather-card-body">
+              <span class="interface-label">Or about a cyclone</span>
+              <p class="weather-question">“Animate daily rainfall across Rajasthan from 13 to 21 June 2023 as Biparjoy's remnants crossed it.”</p>
+              <p>This animation is VayuChat's own GIF export, exactly as downloaded. Every map has <strong>Download image</strong> and every animation <strong>Download GIF</strong>, ready for a report or a slide.</p>
+            </div>
+          </article>
+        </div>
+
+        <p class="weather-note">WRF v4.7.1, domain d01 (27 km), run by the Sustainability Lab, IIT Gandhinagar. These are model simulations, not observations. Weather questions are in testing on the lab's VayuChat build and coming to the hosted app.</p>
+      </div>
+    </section>
+
     <section class="section interfaces-section" id="interfaces">
       <span class="anchor-alias" id="outputs" aria-hidden="true"></span>
       <span class="anchor-alias" id="demo" aria-hidden="true"></span>
@@ -238,6 +313,49 @@
       </div>
     </section>
 
+
+    <section class="section field-section" id="field">
+      <div class="page-shell">
+        <div class="section-intro">
+          <p class="eyebrow">In the field · with CEEW</p>
+          <h2>From the lab to Thane, Delhi, and the news.</h2>
+          <p>VayuChat is built with the <a href="https://www.ceew.in/" target="_blank" rel="noopener noreferrer">Council on Energy, Environment and Water (CEEW)</a>, which has taken it from the lab to the people who use air-quality data every day.</p>
+        </div>
+
+        <div class="field-grid">
+          <article class="interface-card field-card field-card-wide">
+            <img src="./static/images/field-ncap-thane.webp" alt="Thane's entry in CPCB's Compendium of Best Practices under NCAP, noting an AI chatbot integrated in August 2026" width="1000" height="582" loading="lazy">
+            <div class="field-body">
+              <span class="interface-label">Thane, Maharashtra · deployed</span>
+              <h3>The chatbot in Thane's air-quality decision support system</h3>
+              <p>Thane Municipal Corporation's Air Quality Decision Support System, built with CEEW, uses VayuChat to answer questions in Marathi and English over data from 350+ construction-site sensors. The system is featured in CPCB's <em>Compendium of Best Practices under the National Clean Air Programme</em> (September 2026).</p>
+            </div>
+          </article>
+
+          <article class="interface-card field-card">
+            <img src="./static/images/field-ph-9Y3A0634.webp" alt="Participants trying VayuChat on laptops at the hands-on session at Clean Air Horizons 2026" width="1200" height="800" loading="lazy">
+            <div class="field-body">
+              <span class="interface-label">New Delhi · 7 September 2026</span>
+              <h3>Hands-on at Clean Air Horizons</h3>
+              <p>At CEEW's Clean Air Horizons 2026, about 30 researchers, policy analysts and students tried VayuChat with their own questions. Photo: CEEW.</p>
+            </div>
+          </article>
+
+          <article class="interface-card field-card">
+            <img src="./static/images/field-ht-oped.webp" alt="Hindustan Times op-ed by Arunabha Ghosh and Mohammad Rafiuddin, 25 August 2026" width="900" height="900" loading="lazy">
+            <div class="field-body">
+              <span class="interface-label">Hindustan Times · 25 August 2026</span>
+              <h3>“Can AI clean India's air?”</h3>
+              <p>CEEW's Arunabha Ghosh and Dr Mohammad Rafiuddin cite VayuChat as AI built around the people who use it.</p>
+              <a class="interface-link" href="https://www.hindustantimes.com/opinion/can-ai-clean-india-s-air-only-with-the-basics-right-101787589871411.html" target="_blank" rel="noopener noreferrer">Read the op-ed <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </div>
+
+        <p class="field-note">Earlier: VayuBuddy, VayuChat's first version, was covered by the Indian Express, Ahmedabad Mirror, Divya Bhaskar and Chitralekha in December 2024.</p>
+      </div>
+    </section>
+
     <section class="section research-section" id="research">
       <div class="page-shell research-layout">
         <div class="section-intro">
@@ -291,7 +409,7 @@
         <a href="mailto:nipun.batra@iitgn.ac.in">Contact</a>
       </nav>
     </div>
-    <div class="page-shell footer-fineprint"><span>© <span id="current-year">2026</span> Sustainability Lab</span><span>No analytics. No tracking.</span></div>
+    <div class="page-shell footer-fineprint"><span>© <span id="current-year">2026</span> Sustainability Lab · with CEEW</span><span>No analytics. No tracking. YouTube loads only if you play the video.</span></div>
   </footer>
 
   <script src="./static/js/index.js"></script>
