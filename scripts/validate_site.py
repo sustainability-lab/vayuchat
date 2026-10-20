@@ -152,8 +152,8 @@ def validate() -> list[str]:
     if "Apple external review pending" in source:
         errors.append("stale TestFlight review-pending status returned")
 
-    if not (ROOT / "static/images/vayuchat-hero-og.webp").exists():
-        errors.append("missing social preview: static/images/vayuchat-hero-og.webp")
+    if not (ROOT / "static/images/vayuchat-og.jpg").exists():
+        errors.append("missing social preview: static/images/vayuchat-og.jpg")
 
     return errors
 

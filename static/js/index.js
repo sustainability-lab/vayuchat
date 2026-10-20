@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
       frame.className = "video-frame";
       const iframe = document.createElement("iframe");
       iframe.src = `https://www.youtube-nocookie.com/embed/${facade.dataset.youtubeId}?autoplay=1&rel=0`;
-      iframe.title = "VayuChat update, October 2026";
+      iframe.title = facade.dataset.title || "VayuChat video";
       iframe.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
       iframe.allowFullscreen = true;
       frame.appendChild(iframe);
